@@ -95,11 +95,10 @@ class Globals
     node = Globals.connection.createNodeReference("UserActivities")
     counter = 0
     time = start_time
-    end_time = Time.new.to_i if end_time == 0
     while true
       time = node.nextSubscript(user_id, activity_id, time)
       break if time == ""
-      break if time.to_i > end_time
+      break if ((end_time != 0) && (time.to_i > end_time) ) 
       
       counter = counter + 1
     end
