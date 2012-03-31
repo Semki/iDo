@@ -41,7 +41,7 @@ class Globals
   end
   
   def self.count_activities(activity_id)
-    node = Globals.connection.createNodeReference("Activity")
+    #node = Globals.connection.createNodeReference("Activity")
   end
 
 end
