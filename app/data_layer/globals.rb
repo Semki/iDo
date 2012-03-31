@@ -67,9 +67,9 @@ class Globals
     raise ex
   end
   
-  def self.count_activities(activity_id)
+  def self.get_users_doing_the_same(activity_id)
     activities_node = Globals.connection.createNodeReference("LastActivities")
-    counter = 0
+    users = []
     now_time = Time.new.to_i
     time = now_time
     while true
@@ -81,13 +81,17 @@ class Globals
         user = activities_node.nextSubscript(activity_id, time, user)
         break if user == ""
         
-        counter = counter + 1
+        users << user
       end
     end
-    counter
+    users
   end
 
-  def self.GetActivitiesCountByUserAndRange(user_id, activity_id, start_time = 0, end_time = 0)
+  def self.count_activities(activity_id)
+    Globals.get_users_doing_the_same(activity_id).size
+  end
+  
+  def self.get_activities_count_by_user_and_range(user_id, activity_id, start_time = 0, end_time = 0)
     node = Globals.connection.createNodeReference("UserActivities")
     counter = 0
     time = start_time
