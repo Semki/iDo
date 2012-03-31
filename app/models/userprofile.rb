@@ -17,18 +17,7 @@ class UserProfile
   def save
     #.new_user(username, password, password_confirmation)
    puts "test"
-     connection =  JavaLang::ConnectionContext.getConnection()
-         
-                unless connection.isConnected
-                
-		            puts 'trying to connect'
-                    connection.connect('USER','SYSTEM','DATA')
-	             print connection
-			
-
-	        end
-    node = connection.createNodeReference("UsersD")
-    node.set(@password, @username, "password");
+   Globals.save_profile(self)
     
     # Здесь нужно сохранить его в базу
   end
