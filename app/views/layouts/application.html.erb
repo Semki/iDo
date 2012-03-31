@@ -1,14 +1,61 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>IDo</title>
+  <meta charset="utf-8">
+  <title>iDo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="">
+  <meta name="author" content="">
+
+  <style>
+    body {
+      padding-top: 60px;
+    }
+  </style>
+
+  <!--[if lt IE 9]>
+  <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <![endif]-->
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+  <div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+      <div class="container">
+        <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </a>
+        <a class="brand" href="#">iDo</a>
+          <div class="nav-collapse">
+            <ul class="nav">
+              <li <%= is_active_link(home_url) %>>
+                <%= link_to 'Home', home_url %>
+              </li>
+              <li <%= is_active_link(activity_new_url) %>>
+                <%= link_to 'Submit activity', activity_new_url %>
+              </li>
+              <li <%= is_active_link('kvitunov') %>>
+                <%= link_to 'Achievments', 'kvitunov' %>
+              </li>
+            </ul>
+            <p class="navbar-text pull-right">
+              <%= authorisation_html %>
+            </p>
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
 
-<%= yield %>
+    <div class="container">
 
+      <h1>iDO is the way to share your activities and unlock achievments</h1>
+      <br />
+      <%= yield %>
+
+    </div>
 </body>
 </html>
