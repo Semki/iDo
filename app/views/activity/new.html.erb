@@ -1,0 +1,5 @@
+<%= form_tag('/create_activity', :method => 'post') do %>
+  <h3>Select activity</h3>
+  <%= select_tag(:activity, options_for_select(@activity_list.collect{|a| [a,a]})) %><br />
+  <%= submit_tag 'Submit' %>
+<% end %>
