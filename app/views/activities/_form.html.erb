@@ -16,8 +16,13 @@
     <%= f.text_field :name %>
   </div>
   <div class="field">
+
     <%= f.label :parent_id %><br />
-    <%= f.number_field :parent_id %>
+    <div class='input'>
+        <%= select "activity", "parent_id", Activity.all.collect {|p| [ p.name, p.id ] }, :include_blank => true %>
+    </div>
+
+    
   </div>
   <div class="actions">
     <%= f.submit %>
