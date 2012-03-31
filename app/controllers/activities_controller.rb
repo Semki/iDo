@@ -8,7 +8,7 @@ class ActivitiesController < ApplicationController
     user_id = 1
     activity_id = params[:activity_id]
     finish_time = Time.new.to_i
-    Globals.save_last_activity(user_id, activity_id, finish_time)
+    Globals.save_activity(user_id, activity_id, finish_time)
   end
 
   def index
