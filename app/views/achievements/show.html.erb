@@ -11,8 +11,18 @@
 </p>
 
 <p>
-  <b>Picture url:</b>
-  <%= @achievement.picture_url %>
+  <b>Activity:</b>
+  <%= @achievement.activity.name unless @achievement.activity.nil? %>
+</p>
+
+<p>
+  <b>Duration:</b>
+  <%= @achievement.duration %>
+</p>
+
+<p>
+  <b>Count:</b>
+  <%= @achievement.count %>
 </p>
 
 

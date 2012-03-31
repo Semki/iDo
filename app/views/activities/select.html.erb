@@ -1,0 +1,7 @@
+<div class='well'>
+  <%= form_tag activities_submit_url, :method => 'post', :style => 'margin:0;padding:0' do %>
+    <h2>Select activity</h2>
+    <%= select_tag(:activity_id, options_for_select(@activities)) %><br />
+    <%= submit_tag 'Submit', :class => 'btn btn-primary btn-large' %>
+  <% end %>
+</div>

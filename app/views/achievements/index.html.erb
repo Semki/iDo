@@ -4,9 +4,9 @@
   <tr>
     <th>Name</th>
     <th>Description</th>
-    <th>Picture url</th>
-    <th></th>
-    <th></th>
+    <th>Activity</th>
+    <th>Duration</th>
+    <th>Count</th>
     <th></th>
   </tr>
 
@@ -14,7 +14,9 @@
   <tr>
     <td><%= achievement.name %></td>
     <td><%= achievement.description %></td>
-    <td><%= achievement.picture_url %></td>
+    <td><%= achievement.activity.name unless achievement.activity.nil? %></td>
+    <td><%= achievement.duration %></td>
+    <td><%= achievement.count %></td>
     <td><%= link_to 'Show', achievement %></td>
     <td><%= link_to 'Edit', edit_achievement_path(achievement) %></td>
     <td><%= link_to 'Destroy', achievement, :confirm => 'Are you sure?', :method => :delete %></td>

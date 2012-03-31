@@ -19,12 +19,44 @@ class Globals
     connection
   end
 
-  def self.save_profile(userprofile)
-    node = Globals.connection.createNodeReference("UsersD")
-    node.set(userprofile.password, userprofile.username, "password");
+  def self.clean
+    Globals.connection.startTransaction()
+    Globals.connection.createNodeReference("LastUserActivity").kill()
+    Globals.connection.createNodeReference("LastActivities").kill()
+    Globals.connection.commit()
+  rescue => ex
+    Globals.connection.rollback(1)
+  end
+  
+  def self.save_last_activity(user_id, activity_id, finish_time)
+    Globals.connection.startTransaction()
+    user_node = Globals.connection.createNodeReference("LastUserActivity")
+    activities_node = Globals.connection.createNodeReference("LastActivities")
+    if user_node.hasSubnodes(user_id)
+      last_activity = user_node.nextSubscript(user_id, "")
+      last_finish_date = user_node.nextSubscript(user_id, last_activity, "")
+      user_node.kill(user_id, last_activity, last_finish_date)
+      activities_node.kill(last_activity, last_finish_date, user_id)
+    end
+    user_node.set("", user_id, activity_id, finish_time)
+    activities_node.set("", activity_id, finish_time, user_id)
+    Globals.connection.commit()
+  rescue => ex
+    Globals.connection.rollback(1)
+    raise ex
+  end
+  
+  def self.count_activities(activity_id)
+    activities_node = Globals.connection.createNodeReference("LastActivities")
+    now_time = Time.new.to_i
+    #key = 
+     
+      
+    
+  end
+
+  def self.GetActivitiesCountByUserAndRange(userId, activityId, startTime = 0, endTime = 0)
+    
   end
 
 end
-
-#     node = connection.createNodeReference("UsersD")
-#    node.set(@password, @username, "password");
