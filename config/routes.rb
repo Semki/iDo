@@ -1,4 +1,7 @@
 IDo::Application.routes.draw do
+  root :to => 'user#register'
+  match 'register' => 'user#register'
+  match 'new_user' => 'user#new_user'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
