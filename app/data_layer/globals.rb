@@ -12,9 +12,7 @@ class Globals
   def self.connection
     connection =  JavaLang::ConnectionContext.getConnection()
     unless connection.isConnected
-      puts 'trying to connect'
       connection.connect('USER','SYSTEM','DATA')
-      print connection
     end
     connection
   end
@@ -44,16 +42,19 @@ class Globals
   
   def self.save_activity_in_history(user_id, activity_id, finish_time)
     node = Globals.connection.createNodeReference("UserHistory")
+    activities_node = Globals.connection.createNodeReference("UserActivities")
     if node.hasSubnodes(user_id)
       last_start_time = node.previousSubscript(user_id, "")
-      last_finish_time = node.previousSubscript(user_id, last_start_time, "")
-      if last_finish_time > Time.new.to_i
+      last_finish_time = node.previousSubscript(user_id, last_start_time, Time.new.to_i)
+      unless last_finish_time == ""
         last_activity = node.previousSubscript(user_id, last_start_time, last_finish_time, "")
         node.kill(user_id, last_start_time, last_finish_time, last_activity)
         node.set("", user_id, last_start_time, Time.new.to_i, last_activity)
       end 
     end
-    node.set("", user_id, Time.new.to_i, finish_time, activity_id)
+    time = Time.new.to_i
+    node.set("", user_id, time, finish_time, activity_id)
+    activities_node.set("", user_id, activity_id, Time.new.to_i)
   end
   
   def self.save_activity(user_id, activity_id, finish_time)
@@ -86,8 +87,20 @@ class Globals
     counter
   end
 
-  def self.GetActivitiesCountByUserAndRange(userId, activityId, startTime = 0, endTime = 0)
+  def self.GetActivitiesCountByUserAndRange(user_id, activity_id, start_time = 0, end_time = 0)
+    node = Globals.connection.createNodeReference("UserActivities")
+    counter = 0
+    time = start_time
+    end_time = Time.new.to_i if end_time == 0
+    while true
+      time = node.nextSubscript(user_id, activity_id, time)
+      break if time == ""
+      break if time.to_i > end_time
+      
+      counter = counter + 1
+    end
     
+    counter
   end
 
 end
