@@ -5,6 +5,6 @@ class ActivityController < ActionController::Base
   end
 
   def create
-    
+    params[:activity_id]
   end
 end

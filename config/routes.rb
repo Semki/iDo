@@ -1,5 +1,7 @@
 IDo::Application.routes.draw do
   root :to => 'application#index', :as => :home
+  resources :achievements
+  resources :activities
   match 'register' => 'user#register'
   match 'new_user' => 'user#new_user'
   match 'activity' => 'activity#new', :as => :activity_new
