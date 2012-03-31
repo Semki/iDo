@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120331094102) do
+ActiveRecord::Schema.define(:version => 20120331101431) do
 
   create_table "achievements", :force => true do |t|
     t.string   "name"
@@ -29,6 +29,13 @@ ActiveRecord::Schema.define(:version => 20120331094102) do
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
     t.integer  "duration"
+  end
+
+  create_table "user_achievements", :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "achievement_id"
+    t.datetime "created_at",     :null => false
+    t.datetime "updated_at",     :null => false
   end
 
 end
