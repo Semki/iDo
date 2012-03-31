@@ -19,10 +19,24 @@
     <%= f.label :description %><br />
     <%= f.text_field :description %>
   </div>
+  
   <div class="field">
-    <%= f.label :picture_url %><br />
-    <%= f.text_field :picture_url %>
+    <%= f.label :duration %><br />
+    <%= f.text_field :duration %>
   </div>
+
+  <div class="field">
+    <%= f.label :count %><br />
+    <%= f.text_field :count %>
+  </div>
+
+  <div class="field">
+  <%= f.label :activity_id %><br />
+  <div class='input'>
+      <%= select "achievement", "activity_id", Activity.all.collect {|p| [ p.name, p.id ] }, :include_blank => true %>
+  </div>
+
+
   <div class="actions">
     <%= f.submit %>
   </div>
