@@ -5,6 +5,8 @@ class DeviseCreateUsers < ActiveRecord::Migration
       t.string :email,              :null => false, :default => ""
       t.string :encrypted_password, :null => false, :default => ""
 
+
+
       ## Encryptable
       # t.string :password_salt
 
