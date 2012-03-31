@@ -1,3 +1,4 @@
+require 'app\models\userprofile.rb' 
 class UserController < ActionController::Base
   def register
     
@@ -12,8 +13,15 @@ class UserController < ActionController::Base
 
     # Проверки
     @result[:result] = (password_confirmation == password)
-
-    # Здесь нужно сохранить его в базу
+    
+   # Здесь нужно сохранить его в базу
+  up = UserProfile.new
+  up.username = username
+  up.password = password
+  up.save
+  
+  #UserProfile.new_user(username, password, password_confirmation)
+    
   end
 
   def login
