@@ -1,8 +1,10 @@
 IDo::Application.routes.draw do
-  root :to => 'application#index'
+  root :to => 'application#index', :as => :home
+  resources :achievements
+  resources :activities
   match 'register' => 'user#register'
   match 'new_user' => 'user#new_user'
-  match 'activity' => 'activity#new'
+  match 'activity' => 'activity#new', :as => :activity_new
   match 'create_activity' => 'activity#create'
   # The priority is based upon order of creation:
   # first created -> highest priority.
