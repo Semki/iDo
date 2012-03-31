@@ -1,9 +1,14 @@
 IDo::Application.routes.draw do
+
+  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+
+
   root :to => 'application#index', :as => :home
   match 'select' => 'activities#select', :as => :activities_select
   match 'submit' => 'activities#submit', :as => :activities_submit
   resources :achievements
   resources :activities
+
   match 'register' => 'user#register'
   match 'new_user' => 'user#new_user'
 

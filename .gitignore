@@ -14,7 +14,9 @@
 /log/*.log
 /tmp
 
+._redcar/
 /nbproject/private/
 /nbproject
 
 /.project
+
