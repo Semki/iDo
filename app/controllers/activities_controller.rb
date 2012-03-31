@@ -1,6 +1,16 @@
 class ActivitiesController < ApplicationController
-  # GET /activities
-  # GET /activities.json
+
+  def select
+    @activities = Activity.all.collect{|a| [a.name, a.id]}
+  end
+
+  def submit
+    user_id = 1
+    activity_id = params[:activity_id]
+    finish_time = Time.new.to_i
+    Globals.save_last_activity(user_id, activity_id, finish_time)
+  end
+
   def index
     @activities = Activity.all
 
@@ -10,8 +20,6 @@ class ActivitiesController < ApplicationController
     end
   end
 
-  # GET /activities/1
-  # GET /activities/1.json
   def show
     @activity = Activity.find(params[:id])
 
@@ -21,8 +29,6 @@ class ActivitiesController < ApplicationController
     end
   end
 
-  # GET /activities/new
-  # GET /activities/new.json
   def new
     @activity = Activity.new
 
@@ -32,13 +38,10 @@ class ActivitiesController < ApplicationController
     end
   end
 
-  # GET /activities/1/edit
   def edit
     @activity = Activity.find(params[:id])
   end
 
-  # POST /activities
-  # POST /activities.json
   def create
     @activity = Activity.new(params[:activity])
 
@@ -53,8 +56,6 @@ class ActivitiesController < ApplicationController
     end
   end
 
-  # PUT /activities/1
-  # PUT /activities/1.json
   def update
     @activity = Activity.find(params[:id])
 
@@ -69,8 +70,6 @@ class ActivitiesController < ApplicationController
     end
   end
 
-  # DELETE /activities/1
-  # DELETE /activities/1.json
   def destroy
     @activity = Activity.find(params[:id])
     @activity.destroy
