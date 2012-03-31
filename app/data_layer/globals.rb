@@ -70,7 +70,7 @@ class Globals
   def self.get_users_doing_the_same(activity_id)
     activities_node = Globals.connection.createNodeReference("LastActivities")
     users = []
-    now_time = Time.new.to_i
+    now_time = "" #Time.new.to_i
     time = now_time
     while true
       time = activities_node.nextSubscript(activity_id, time)
