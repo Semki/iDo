@@ -1,4 +1,6 @@
 IDo::Application.routes.draw do
+  devise_for :users
+
   root :to => 'user#register'
   match 'register' => 'user#register'
   match 'new_user' => 'user#new_user'
