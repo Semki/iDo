@@ -19,29 +19,44 @@ class Globals
     connection
   end
 
-  def self.save_profile(userprofile)
-    node = Globals.connection.createNodeReference("UsersD")
-    node.set(userprofile.password, userprofile.username, "password")
+  def self.clean
+    Globals.connection.startTransaction()
+    Globals.connection.createNodeReference("LastUserActivity").kill()
+    Globals.connection.createNodeReference("LastActivities").kill()
+    Globals.connection.commit()
+  rescue => ex
+    Globals.connection.rollback(1)
   end
   
   def self.save_last_activity(user_id, activity_id, finish_time)
     Globals.connection.startTransaction()
-    node = Globals.connection.createNodeReference("Activity")
-    if node.exists(user_id)
-      last_activity = node.nextSubscript(user_id, "")
-      last_finish_date = node.nextSubscript(user_id, last_activity, "")
-      node.kill(user_id, last_activity, last_finish_date)
-      node.kill(last_activity, last_finish_date, user_id)
+    user_node = Globals.connection.createNodeReference("LastUserActivity")
+    activities_node = Globals.connection.createNodeReference("LastActivities")
+    if user_node.hasSubnodes(user_id)
+      last_activity = user_node.nextSubscript(user_id, "")
+      last_finish_date = user_node.nextSubscript(user_id, last_activity, "")
+      user_node.kill(user_id, last_activity, last_finish_date)
+      activities_node.kill(last_activity, last_finish_date, user_id)
     end
-    node.set("", user_id, activity_id, finish_time)
-    node.set("", activity_id, finish_time, user_id)
+    user_node.set("", user_id, activity_id, finish_time)
+    activities_node.set("", activity_id, finish_time, user_id)
     Globals.connection.commit()
-  rescue
+  rescue => ex
     Globals.connection.rollback(1)
+    raise ex
   end
   
   def self.count_activities(activity_id)
-    #node = Globals.connection.createNodeReference("Activity")
+    activities_node = Globals.connection.createNodeReference("LastActivities")
+    now_time = Time.new.to_i
+    #key = 
+     
+      
+    
+  end
+
+  def self.GetActivitiesCountByUserAndRange(userId, activityId, startTime = 0, endTime = 0)
+    
   end
 
 end
