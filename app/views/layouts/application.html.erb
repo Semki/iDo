@@ -32,9 +32,15 @@
         <a class="brand" href="#">iDo</a>
           <div class="nav-collapse">
             <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">Submit activity</a></li>
-              <li><a href="#contact">Achievments</a></li>
+              <li <%= is_active_link(home_url) %>>
+                <%= link_to 'Home', home_url %>
+              </li>
+              <li <%= is_active_link(activity_new_url) %>>
+                <%= link_to 'Submit activity', activity_new_url %>
+              </li>
+              <li <%= is_active_link('kvitunov') %>>
+                <%= link_to 'Achievments', 'kvitunov' %>
+              </li>
             </ul>
             <p class="navbar-text pull-right">
               <%= authorisation_html %>
