@@ -8,9 +8,7 @@ class ActivitiesController < ApplicationController
     user_id = current_user.id
     activity_id = params[:activity_id]
     finish_time = Time.new.to_i
-    
-    User.create_user_achievements(user_id)
-    
+    Achievement.create_achievements_by_user_id_and_activity_id(user_id, activity_id, finish_time)
     Globals.save_activity(user_id, activity_id, finish_time)
     @users = Globals.get_users_doing_the_same(activity_id).collect{|u| User.find(u)}
   end
