@@ -20,7 +20,7 @@ module ActivitiesHelper
   def last_user_activities(user,count)
     Globals.last_user_activities(user.id, count).collect{|ra|
        {:user_id => user.id, :user_name => user.name,
-       :user_picture => user.image_url, :activity_id => ra[:activity_id] }
+       :user_picture => user.image_url, :activity_id => ra }
     }
   end
   
