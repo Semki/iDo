@@ -4,9 +4,9 @@
 <% else %>
   <h1>Your achievements</h1>
   <% @achievements.each do |a| %>
-    <div class='well'>
-      <img src="/images/achievements/<%= a.picture_url %>" alt=""><br />
-      <h4><%= a.name %></h4>
+    <div class='achievement-container'>
+      <img src="/images/achievements/<%= a.picture_url %>" alt="<%= a.name %>" style="width:112px;height:112px">
+      <p style="width: 112px; text-align: center;margin: 3px 0"><%= a.name %></p>
     </div>
   <% end %>
 <% end %>
