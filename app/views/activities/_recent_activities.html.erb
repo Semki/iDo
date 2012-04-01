@@ -1,13 +1,17 @@
 <h3>Recent activities</h3>
 
 <ul class="unstyled activity-list">
-  <% recent_user_activities.each do |ra| %>
+  <% if activity_of_current_user.nil? %>
+    <% activities = recent_user_activities %>
+  <% else %>
+    <% activities = users_doing_the_same(activity_of_current_user) %>
+  <% end %>
+  <% activities.each do |ra| %>
   <li>
     <img src="<%= ra[:user_picture] %>" alt="<%= ra[:user_name] %>" style="width:30px;height:30px" />
     <span><%= ra[:user_name] %></span>
     <span> is now </span>
-    <img src="<%= ra[:activity_picture] %>" alt="<%= ra[:activity_name] %>" />
-    <span><%= ra[:activity_name] %></span>
+    <%= render :partial => 'activities/activity_with_picture', :locals => {:activity_id => ra[:activity_id]} %>
   </li>
   <% end %>
 </ul>

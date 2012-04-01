@@ -39,3 +39,7 @@ body {
   height: 160px;
   float: left;
 }
+
+.activity-list li {
+  margin-bottom: 3px;
+}

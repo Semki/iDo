@@ -8,10 +8,10 @@ class ActivitiesController < ApplicationController
   def submit
     user_id = current_user.id
     activity_id = params[:activity_id]
-    finish_time = Time.new.to_i
+    finish_time = Time.new.to_i+120
     Achievement.create_achievements_by_user_id_and_activity_id(user_id, activity_id, finish_time)
     Globals.save_activity(user_id, activity_id, finish_time)
-    @user_names = Globals.get_users_doing_the_same(activity_id).collect{|u| User.get_name_by_id(u)}
+    redirect_to home_url
   end
 
   def index
