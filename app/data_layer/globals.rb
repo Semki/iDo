@@ -60,7 +60,7 @@ class Globals
     while true
       user_id = rand(last_user - first_user + 1).to_i + first_user
       activity_id = rand(last_activity-first_activity + 1).to_i + first_activity
-      finish_time = 120
+      finish_time = Time.new.to_i + 120
       Globals.save_activity(user_id, activity_id, finish_time)
       Achievement.create_achievements_by_user_id_and_activity_id(user_id, activity_id, Time.new.to_i)
       sleep(1.0)  
@@ -196,6 +196,25 @@ class Globals
       end
     end
     result
+  end
+  
+  def self.last_user_activities(user_id, count)
+    # ^UserHistory(user_id, start_time, finish_time, activity_id) = ""
+    node = Globals.connection.createNodeReference("UserHistory")
+    activities = []
+    start_time = ""
+    while true
+      start_time = node.previousSubscript(user_id, start_time)
+      break if start_time == ""
+      finish_time = node.previousSubscript(user_id, start_time, "")
+      break if finish_time == ""
+      activity = node.previousSubscript(user_id, start_time, finish_time, "")
+      break if activity == ""
+      
+      activities << activity
+      break if activities.size >= count
+    end
+    activities
   end
 
 end

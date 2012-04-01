@@ -32,6 +32,14 @@ ActiveRecord::Schema.define(:version => 20120401092109) do
     t.string   "picture_url"
   end
 
+  create_table "bonus_achievements", :force => true do |t|
+    t.string   "name"
+    t.string   "picture_url"
+    t.string   "description"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
   create_table "user_achievements", :force => true do |t|
     t.integer  "user_id"
     t.integer  "achievement_id"

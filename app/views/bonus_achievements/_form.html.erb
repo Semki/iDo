@@ -1,0 +1,29 @@
+<%= form_for(@bonus_achievement) do |f| %>
+  <% if @bonus_achievement.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@bonus_achievement.errors.count, "error") %> prohibited this bonus_achievement from being saved:</h2>
+
+      <ul>
+      <% @bonus_achievement.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :picture_url %><br />
+    <%= f.text_field :picture_url %>
+  </div>
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

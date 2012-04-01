@@ -1,0 +1,27 @@
+<h1>Listing bonus achievements</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Picture url</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @bonus_achievements.each do |bonus_achievement| %>
+  <tr>
+    <td><%= bonus_achievement.name %></td>
+    <td><%= bonus_achievement.picture_url %></td>
+    <td><%= bonus_achievement.description %></td>
+    <td><%= link_to 'Show', bonus_achievement %></td>
+    <td><%= link_to 'Edit', edit_bonus_achievement_path(bonus_achievement) %></td>
+    <td><%= link_to 'Destroy', bonus_achievement, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Bonus achievement', new_bonus_achievement_path %>
