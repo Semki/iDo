@@ -1,4 +1,7 @@
 class BonusAchievementsController < ApplicationController
+  
+  before_filter :is_admin?
+  
   # GET /bonus_achievements
   # GET /bonus_achievements.json
   def index

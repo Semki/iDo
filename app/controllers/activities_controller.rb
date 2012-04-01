@@ -1,6 +1,6 @@
 class ActivitiesController < ApplicationController
   
-  before_filter :is_admin?
+  before_filter :is_admin?, :except=>[:submit]
   
   def select
   end
