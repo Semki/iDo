@@ -216,5 +216,16 @@ class Globals
     end
     activities
   end
+  
+  def self.get_user_current_activity(user_id)
+    # ^UserHistory(user_id, start_time, finish_time, activity_id) = ""
+    node = Globals.connection.createNodeReference("UserHistory")
+    result = ""
+    start_time = node.previousSubscript(user_id, "")
+    return "" if start_time == ""
+    finish_time = node.previousSubscript(user_id, start_time, "")
+    return "" if finish_time == ""
+    node.previousSubscript(user_id, start_time, finish_time, "")
+  end
 
 end
