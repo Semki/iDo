@@ -35,6 +35,21 @@ class Globals
     Globals.connection.rollback(1)
   end
   
+  def self.populate
+    first_user = User.find(:first).id.to_i
+    last_user = User.find(:last).id.to_i
+    first_activity = Activity.find(:first).id.to_i
+    last_activity = Activity.find(:last).id.to_i
+      
+    while true
+      user_id = rand(last_user - first_user + 1).to_i + first_user
+      activity_id = rand(last_activity-first_activity + 1).to_i + first_activity
+      finish_time = 120
+      Globals.save_activity(user_id, activity_id, finish_time)
+      sleep(1.0)  
+    end
+  end
+  
   def self.save_last_activity(user_id, activity_id, finish_time)
     user_node = Globals.connection.createNodeReference("LastUserActivity")
     activities_node = Globals.connection.createNodeReference("LastActivities")
