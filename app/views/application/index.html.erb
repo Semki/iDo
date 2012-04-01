@@ -16,8 +16,8 @@ Morbi pellentesque congue sapien, ac rhoncus lacus scelerisque et. Integer trist
 
 <% @recents.each do |record| %>
   <tr>
-    <td><%= record[:user_id] %></td>
-    <td><%= record[:activity_id] %></td>
+    <td><%= User.find(record[:user_id]).name %></td>
+    <td><%= Activity.find(record[:activity_id]).name %></td>
   </tr>
 <% end %>
 </table>
