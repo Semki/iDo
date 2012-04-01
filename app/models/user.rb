@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   
   has_many :gained_achievements, :class_name=>'UserAchievement', :foreign_key=>'user_id'
+  has_many :user_bonuses, :class_name=>'UserBonus', :foreign_key=>'user_id'
   
   def self.find_for_twitter_oauth(uid, signed_in_resource=nil)
 
