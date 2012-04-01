@@ -19,6 +19,13 @@ class User < ActiveRecord::Base
     end
   end
   
-
+  def self.get_name_by_id(id)
+    cached_key = "User " + id.to_s
+    name = Globals.pop_from_cache(cached_key)
+    return name unless name.blank?
+    name = User.find(id).name
+    Globals.push_in_cache(cached_key, name)
+    name
+  end
   
 end
