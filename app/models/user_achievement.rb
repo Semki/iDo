@@ -3,4 +3,6 @@ class UserAchievement < ActiveRecord::Base
   
   belongs_to :achievement, :class_name=>'Achievement'
   belongs_to :user, :class_name=>'User'
+  
+  
 end

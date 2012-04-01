@@ -3,4 +3,8 @@ class Achievement < ActiveRecord::Base
   belongs_to :activity, :class_name=>'Activity'
   has_many :users, :class_name=>'UserAchievement', :foreign_key=>'achievement_id'
   
+  def user_has_gained(user_id)
+    return false if activity_id.nil? 
+    return Globals.get_activities_count_by_user_and_range(user_id, activity_id, 0, 0) >= count
+  end
 end
