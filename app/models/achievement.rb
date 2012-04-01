@@ -25,6 +25,6 @@ class Achievement < ActiveRecord::Base
   end
 
   def self.get_by_user(user_id)
-    UserAchievement.find_by_user_id(user_id).to_a.collect{ |ua| ua.achievement}
+    UserAchievement.find_all_by_user_id(user_id).to_a.collect{ |ua| ua.achievement}
   end
 end
