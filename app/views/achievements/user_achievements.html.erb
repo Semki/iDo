@@ -1,5 +1,9 @@
-<h1>Your achievements</h1>
-
-<% @achievements.each do |a| %>
-  <div class="alert alert-success"><h3><%= a.name %></h3></div>
+<% if @achievements.empty? %>
+  <h2>You currently have no achievements</h2>
+  <h3>Work harder, pussy</h3>
+<% else %>
+  <h1>Your achievements</h1>
+  <% @achievements.each do |a| %>
+    <div class="alert alert-success"><h3><%= a.name %></h3></div>
+  <% end %>
 <% end %>
