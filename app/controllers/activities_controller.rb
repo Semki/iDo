@@ -1,7 +1,6 @@
 class ActivitiesController < ApplicationController
 
   def select
-    @activities = Activity.all.collect{|a| [a.name, a.id]}
   end
 
   def submit

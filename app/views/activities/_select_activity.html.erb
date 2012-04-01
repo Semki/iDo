@@ -1,0 +1,6 @@
+<div class='well' style="width: 310px;padding: 10px 0px 1px 10px;">
+  <%= form_tag activities_submit_url, :method => 'post', :style => 'margin:0;padding:0' do %>
+     <%= select_tag(:activity_id, options_for_select(activities)) %>
+     <%= submit_tag 'Submit', :class => 'btn btn-primary btn-large', :style => 'margin-bottom: 10px;' %>
+  <% end %>
+</div>
