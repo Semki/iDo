@@ -2,7 +2,7 @@
   <h2>Your current activity</h2>
   <div class='well'>
   <% current_activity_id = activity_of_current_user %>
-  <% if current_activity_id.nil? %>
+  <% if current_activity_id.blank? %>
     <b>You doing nothing. Why not submit some activity?</b>
   <% else %>
     <b>You are </b><%= render :partial => 'activities/activity_with_picture', :locals => {:activity_id => current_activity_id} %>
