@@ -18,18 +18,6 @@ class User < ActiveRecord::Base
     end
   end
   
-  def self.create_user_achievements(user_id)
-    puts "test"
-   
-    Achievement.all.each { |achievement| 
-      if achievement.user_has_gained(user_id)
-        if UserAchievement.find_all_by_user_id_and_achievement_id(user_id, achievement.id).first.nil?  
-          UserAchievement.create(:user_id => user_id,  :achievement_id => achievement.id)
-        end  
-      end
-    }
-  
-    
-  end
+
   
 end
