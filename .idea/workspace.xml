@@ -3,11 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="90661a7d-6a0a-42c1-9ba3-566bdfccb46a" name="Default" comment="">
       <change type="DELETED" beforePath="D:\git\iDo\app\views\activities\_selectActivity.html.erb" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/activities_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/activities_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/activities_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/activities_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/activities/select.html.erb" afterPath="$PROJECT_DIR$/app/views/activities/select.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/application/index.html.erb" afterPath="$PROJECT_DIR$/app/views/application/index.html.erb" />
+      <change type="DELETED" beforePath="D:\git\iDo\public\images\activities\dog_walking.png" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/activities/_select_activity.html.erb" afterPath="$PROJECT_DIR$/app/views/activities/_select_activity.html.erb" />
     </list>
     <ignored path="iDo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -48,10 +45,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="select.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="select.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/activities/select.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="33" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0">
+            <state line="0" column="33" selection-start="33" selection-end="33" vertical-scroll-proportion="-0.0">
               <folding />
             </state>
           </provider>
@@ -75,15 +72,6 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="production.rb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/config/environments/production.rb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="51" column="54" selection-start="1949" selection-end="1949" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/application/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
@@ -93,10 +81,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_select_activity.html.erb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="_select_activity.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/activities/_select_activity.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="65" selection-start="65" selection-end="65" vertical-scroll-proportion="-0.0">
+            <state line="13" column="68" selection-start="682" selection-end="682" vertical-scroll-proportion="0.49456522">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="xhtml1-transitional.xsd" pinned="false" current="false" current-in-tab="false">
+        <entry file="jar://$APPLICATION_HOME_DIR$/lib/rubymine.jar!/standardSchemas/xhtml1-transitional.xsd">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="353" column="4" selection-start="10089" selection-end="10089" vertical-scroll-proportion="0.0">
               <folding />
             </state>
           </provider>
@@ -148,8 +145,8 @@
         <option value="$PROJECT_DIR$/app/helpers/activities_helper.rb" />
         <option value="$PROJECT_DIR$/app/controllers/activities_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/application/index.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/activities/_select_activity.html.erb" />
         <option value="$PROJECT_DIR$/app/views/activities/select.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/activities/_select_activity.html.erb" />
       </list>
     </option>
   </component>
@@ -804,13 +801,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/views/achievements/_form.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="27" selection-start="319" selection-end="319" vertical-scroll-proportion="-4.9">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="31" column="57" selection-start="937" selection-end="937" vertical-scroll-proportion="-9.1">
@@ -902,16 +892,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/activities/_select_activity.html.erb">
+    <entry file="file://$PROJECT_DIR$/app/views/activities/select.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="65" selection-start="65" selection-end="65" vertical-scroll-proportion="0.0">
+        <state line="0" column="33" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/activities/select.html.erb">
+    <entry file="jar://$APPLICATION_HOME_DIR$/lib/rubymine.jar!/standardSchemas/xhtml1-transitional.xsd">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="33" selection-start="33" selection-end="33" vertical-scroll-proportion="0.0">
+        <state line="353" column="4" selection-start="10089" selection-end="10089" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/activities/_select_activity.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="13" column="68" selection-start="682" selection-end="682" vertical-scroll-proportion="0.49456522">
           <folding />
         </state>
       </provider>
