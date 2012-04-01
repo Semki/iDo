@@ -239,5 +239,32 @@ class Globals
     node = Globals.connection.createNodeReference("Cache")
     node.getString(key)
   end
+  
+  def self.init_bonus_achievements(bonus_id, ids)
+    node = Globals.connection.createNodeReference("Bonuses")
+    ids.each { |id| node.appendSubscript(id) }
+    node.set(bonus_id)
+  end
+  
+  def self.get_bonuses_ids(ids)
+    node = Globals.connection.createNodeReference("Bonuses")
+    ids.each { |id| node.appendSubscript(id) }
+    node.getString()
+  end
+  
+  def self.calc_bonuses_ids(ids, result)
+    id = get_bonuses_ids(ids)
+    #puts ids
+    unless id.nil? || result.include?(id)
+      result << id 
+    end
+    return if ids.size <=2
+    for i in 0..ids.length-1 
+      arr = []
+      arr = ids[0..i-1] if i>0
+      arr = arr + ids[i+1..ids.length-1]
+      calc_bonuses_ids(arr, result) 
+    end
+  end
 
 end
