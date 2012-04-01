@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   # attr_accessible :title, :body
   
   has_many :gained_achievements, :class_name=>'UserAchievement', :foreign_key=>'user_id'
+  has_many :user_bonuses, :class_name=>'UserBonus', :foreign_key=>'user_id'
   
   def self.find_for_twitter_oauth(uid, signed_in_resource=nil)
 
@@ -18,6 +19,13 @@ class User < ActiveRecord::Base
     end
   end
   
-
+  def self.get_name_by_id(id)
+    cached_key = "User " + id.to_s
+    name = Globals.pop_from_cache(cached_key)
+    return name unless name.blank?
+    name = User.find(id).name
+    Globals.push_in_cache(cached_key, name)
+    name
+  end
   
 end

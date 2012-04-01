@@ -14,6 +14,7 @@ class Globals
   # ^UserHistory(user_id, start_time, finish_time, activity_id) = ""
   # ^UserActivities(user_id, activity_id, start_time) = ""
   # ^RecentActivities(start_time, activity_id, user_id) = ""
+  # ^Cache(key) = value
   
   def self.connection
     connection =  JavaLang::ConnectionContext.getConnection()
@@ -30,6 +31,7 @@ class Globals
     Globals.connection.createNodeReference("UserHistory").kill()
     Globals.connection.createNodeReference("UserActivities").kill()
     Globals.connection.createNodeReference("RecentActivities").kill()
+    Globals.connection.createNodeReference("Cache").kill()
     Globals.connection.commit()
   rescue => ex
     Globals.connection.rollback(1)
@@ -225,6 +227,16 @@ class Globals
     finish_time = node.previousSubscript(user_id, start_time, "")
     return "" if finish_time == ""
     node.previousSubscript(user_id, start_time, finish_time, "")
+  end
+  
+  def self.push_in_cache(key, value)
+    node = Globals.connection.createNodeReference("Cache")
+    node.set(value, key)
+  end
+  
+  def self.pop_from_cache(key)
+    node = Globals.connection.createNodeReference("Cache")
+    node.getString(key)
   end
 
 end
