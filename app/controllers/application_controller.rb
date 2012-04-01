@@ -4,6 +4,6 @@ class ApplicationController < ActionController::Base
   before_filter :authenticate_user!  
   
   def index
-    
+    @recents = Globals.recent_activities(20)
   end
 end
