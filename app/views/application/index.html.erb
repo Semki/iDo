@@ -7,3 +7,17 @@ Fusce nisl erat, tincidunt ac viverra a, laoreet et ligula. Proin ultrices inter
 <p>
 Morbi pellentesque congue sapien, ac rhoncus lacus scelerisque et. Integer tristique velit nisl, quis posuere massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut velit nec mi commodo facilisis. Donec auctor turpis quis lacus luctus vitae consectetur eros eleifend. Maecenas magna velit, tincidunt eu cursus a, vulputate ac odio. Aenean eleifend auctor nisi, at aliquet sapien ultrices ac. In mollis, elit consectetur auctor tincidunt, nulla tortor fringilla leo, at ornare nunc elit eu nibh. Aliquam erat volutpat. Mauris consequat vestibulum ultrices. Proin vel augue id lectus consectetur eleifend. Maecenas congue scelerisque cursus. Mauris pretium, eros non mattis feugiat, leo dolor volutpat mauris, quis vestibulum nisl lacus eget lacus.
 </p>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Activity</th>
+  </tr>
+
+<% @recents.each do |record| %>
+  <tr>
+    <td><%= record[:user_id] %></td>
+    <td><%= record[:activity_id] %></td>
+  </tr>
+<% end %>
+</table>
