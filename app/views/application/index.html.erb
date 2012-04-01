@@ -8,12 +8,5 @@
 
 <br />
 <h2>Other people's activity:</h2>
+<%= render :partial => 'activities/recent_activities' %>
 
-<table>
-<% @recents.each do |record| %>
-  <tr>
-    <td><%= User.find(record[:user_id]).name %></td>
-    <td><%= Activity.find(record[:activity_id]).name %></td>
-  </tr>
-<% end %>
-</table>
