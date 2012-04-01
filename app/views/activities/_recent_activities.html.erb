@@ -9,7 +9,7 @@
   <% activities.each do |ra| %>
   <li>
     <img src="<%= ra[:user_picture] %>" alt="<%= ra[:user_name] %>" style="width:30px;height:30px" />
-    <span><%= ra[:user_name] %></span>
+    <span><%= link_to ra[:user_name], user_path(3) %></span>
     <span> is now </span>
     <%= render :partial => 'activities/activity_with_picture', :locals => {:activity_id => ra[:activity_id]} %>
   </li>

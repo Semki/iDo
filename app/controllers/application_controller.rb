@@ -8,5 +8,6 @@ class ApplicationController < ActionController::Base
   end
   
   def index
+    @user = current_user
   end
 end

@@ -1,10 +1,12 @@
 IDo::Application.routes.draw do
 
   resources :bonus_achievements
+  
+  devise_for :users, :path_prefix => 'd', :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
+  resources :users
+  
 
-  devise_for :users, :controllers => { :omniauth_callbacks => "users/omniauth_callbacks" }
-
-
+  
   root :to => 'application#index', :as => :home
   match 'select' => 'activities#select', :as => :activities_select
   match 'submit' => 'activities#submit', :as => :activities_submit

@@ -43,21 +43,18 @@ class Globals
     first_activity = Activity.find(:first).id.to_i
     last_activity = Activity.find(:last).id.to_i
     
-    cnt = 1
-    40.times {
-      user = User.find_by_twitter_id(cnt.to_s)
+    for i in 1..40 
+      user = User.find_by_twitter_id(i.to_s)
       if user.nil?
         puts "create user"
-        User.create!(:email => "mail@ggg.com" + cnt.to_s, 
+        User.create!(:email => "mail@ggg.com" + i.to_s, 
           :password => Devise.friendly_token[0,20], 
-          :name => "Bot name " + cnt.to_s,
-          :nickname => "Bot " + cnt.to_s, 
+          :name => "Bot name " + i.to_s,
+          :nickname => "Bot " + i.to_s, 
           :image_url => "http://a0.twimg.com/sticky/default_profile_images/default_profile_4_normal.png",
-          :twitter_id => cnt.to_s)
+          :twitter_id => i.to_s)
       end
-      
-      cnt = cnt + 1
-    }
+    end
       
     while true
       user_id = rand(last_user - first_user + 1).to_i + first_user
