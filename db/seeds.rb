@@ -19,7 +19,7 @@ Achievement.create({:name => 'nerd', :duration => '10', :count => '20', :activit
 
 activity_walking = Activity.create({:name => 'Walking with dog', :picture_url => 'dog_walking.png'})
 activity_drinking = Activity.create({:name => 'Drinking', :picture_url => 'drinking.png'})
-activity_playing_balalaika = Activity.create({:name => 'Playing balalaika with my bear', :picture_url => 'unkwnown.png'})
+activity_playing_balalaika = Activity.create({:name => 'Playing balalaika with my bear', :picture_url => 'music.png'})
 Achievement.create({:name => 'balalaika perfomance', :duration => '0', :count => '1', :activity_id => activity_playing_balalaika.id, :picture_url => 'balalaika.png' })
 
 UserAchievement.destroy_all
