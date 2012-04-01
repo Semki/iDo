@@ -1,9 +1,4 @@
 class AchievementsController < ApplicationController
-
-  def user_achievements
-    @achievements = Achievement.get_by_user(current_user.id)
-  end
-
   # GET /achievements
   # GET /achievements.json
   def index

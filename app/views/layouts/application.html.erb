@@ -31,17 +31,7 @@
         </a>
         <%= link_to 'iDo', home_url, :class => 'brand' %>
           <div class="nav-collapse">
-            <ul class="nav">
-              <li <%= is_active_link(home_url) %>>
-                <%= link_to 'Home', home_url %>
-              </li>
-              <li <%= is_active_link(activities_select_url) %>>
-                <%= link_to 'Submit activity', activities_select_url %>
-              </li>
-              <li <%= is_active_link(my_achievements_url) %>>
-                <%= link_to 'Achievments', my_achievements_url %>
-              </li>
-            </ul>
+            
             <p class="navbar-text pull-right">
               <%= authorisation_html %>
             </p>
@@ -55,10 +45,16 @@
         <h1>Share activities. Gain achievements</h1>
       </div>
 
+      <div class="row show-grid">
+        <div class="span8">
+          <%= yield %>
+        </div>
 
-      <br />
-      <%= yield %>
-
+        <div class="span4">
+          <%= render :partial => 'activities/current_user_activity' %>
+          <%= render :partial => 'achievements/user_achievements' %>
+        </div>
+      </div>
     </div>
 </body>
 </html>

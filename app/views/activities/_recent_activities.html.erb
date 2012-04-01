@@ -6,8 +6,7 @@
     <img src="<%= ra[:user_picture] %>" alt="<%= ra[:user_name] %>" style="width:30px;height:30px" />
     <span><%= ra[:user_name] %></span>
     <span> is now </span>
-    <img src="<%= ra[:activity_picture] %>" alt="<%= ra[:activity_name] %>" />
-    <span><%= ra[:activity_name] %></span>
+    <%= render :partial => 'activities/activity_with_picture', :locals => {:activity_id => ra[:activity_id]} %>
   </li>
   <% end %>
 </ul>
