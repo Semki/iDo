@@ -46,6 +46,7 @@ class Globals
       activity_id = rand(last_activity-first_activity + 1).to_i + first_activity
       finish_time = 120
       Globals.save_activity(user_id, activity_id, finish_time)
+      Achievement.create_achievements_by_user_id_and_activity_id(user_id, activity_id, Time.new.to_i)
       sleep(1.0)  
     end
   end
