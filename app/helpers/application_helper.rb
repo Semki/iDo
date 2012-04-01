@@ -4,7 +4,7 @@ module ApplicationHelper
     username = "Kvitunov"
 
     if user_signed_in?
-      "<img src='#{current_user.image_url}' width='30px' height='30px' /> <b>#{current_user.name}</b>  #{link_to 'Log Out', destroy_user_session_path, :method=>:delete}".html_safe
+      "<img src='#{current_user.image_url}' width='30px' height='30px' style='margin-bottom: 4px;' /> <b>#{current_user.name}</b>  #{link_to 'Log Out', destroy_user_session_path, :method=>:delete}".html_safe
     end
   end
 
