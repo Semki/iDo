@@ -8,7 +8,7 @@ Achievement.create({:name => 'fatman', :duration => '1', :count => '7', :activit
 activity_working = Activity.create({:name => 'Working', :picture_url => 'working.png'})
 activity_cleaning = Activity.create({:name => 'Cleaning', :picture_url => 'cleaning.png'})
 activity_shopping = Activity.create({:name => 'Shopping', :picture_url => 'shopping.png'})
-#activity_running = Activity.create({:name => 'Running', :picture_url => ''})
+activity_running = Activity.create({:name => 'Running', :picture_url => 'running.png'})
 Achievement.create({:name => 'runner of first level', :duration => '100', :count => '25', :activity_id => activity_running.id, :picture_url => 'runner.png' })
 
 #activity_pissing = Activity.create({:name => 'Pissing', :picture_url => ''})
