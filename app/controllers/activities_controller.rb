@@ -9,7 +9,7 @@ class ActivitiesController < ApplicationController
     finish_time = Time.new.to_i
     Achievement.create_achievements_by_user_id_and_activity_id(user_id, activity_id, finish_time)
     Globals.save_activity(user_id, activity_id, finish_time)
-    @users = Globals.get_users_doing_the_same(activity_id).collect{|u| User.find(u)}
+    @user_names = Globals.get_users_doing_the_same(activity_id).collect{|u| User.get_name_by_id(u)}
   end
 
   def index
