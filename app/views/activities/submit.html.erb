@@ -1,3 +1,8 @@
 <div class='well'>
 <h1>Заебись внатуре записалось</h1>
+
+<%= @users %>
+<% @users.each do |u| %>
+  <h2><%= u.email %></h2>
+<% end %>
 </div>
