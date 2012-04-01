@@ -6,6 +6,10 @@ class Achievement < ActiveRecord::Base
   def user_has_gained(user_id, finish_time)
     return false if activity_id.nil? 
     start_time = finish_time - (60 * 60 * 24 * duration)
+    if duration == 0
+      start_time = 0
+      finish_time = 0
+    end
     return Globals.get_activities_count_by_user_and_range(user_id, activity_id, start_time, finish_time) >= count
   end
   
