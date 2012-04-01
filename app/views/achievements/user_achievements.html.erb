@@ -4,6 +4,9 @@
 <% else %>
   <h1>Your achievements</h1>
   <% @achievements.each do |a| %>
-    <div class="alert alert-success"><h3><%= a.name %></h3></div>
+    <div class='well'>
+      <img src="/images/achievements/<%= a.picture_url %>" alt=""><br />
+      <h4><%= a.name %></h4>
+    </div>
   <% end %>
 <% end %>
