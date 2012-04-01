@@ -113,9 +113,10 @@ class Globals
   end
   
   def self.get_users_doing_the_same(activity_id)
+    puts "activity_id" + activity_id
     activities_node = Globals.connection.createNodeReference("LastActivities")
     users = []
-    now_time = "" #Time.new.to_i
+    now_time = Time.new.to_i
     time = now_time
     while true
       time = activities_node.nextSubscript(activity_id, time)
@@ -226,6 +227,7 @@ class Globals
     return "" if start_time == ""
     finish_time = node.previousSubscript(user_id, start_time, "")
     return "" if finish_time == ""
+    return "" if finish_time.to_i < Time.new.to_i
     node.previousSubscript(user_id, start_time, finish_time, "")
   end
   
@@ -237,6 +239,33 @@ class Globals
   def self.pop_from_cache(key)
     node = Globals.connection.createNodeReference("Cache")
     node.getString(key)
+  end
+  
+  def self.init_bonus_achievements(bonus_id, ids)
+    node = Globals.connection.createNodeReference("Bonuses")
+    ids.each { |id| node.appendSubscript(id) }
+    node.set(bonus_id)
+  end
+  
+  def self.get_bonuses_ids(ids)
+    node = Globals.connection.createNodeReference("Bonuses")
+    ids.each { |id| node.appendSubscript(id) }
+    node.getString()
+  end
+  
+  def self.calc_bonuses_ids(ids, result)
+    id = get_bonuses_ids(ids)
+    #puts ids
+    unless id.nil? || result.include?(id)
+      result << id 
+    end
+    return if ids.size <=2
+    for i in 0..ids.length-1 
+      arr = []
+      arr = ids[0..i-1] if i>0
+      arr = arr + ids[i+1..ids.length-1]
+      calc_bonuses_ids(arr, result) 
+    end
   end
 
 end

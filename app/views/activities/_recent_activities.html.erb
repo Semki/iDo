@@ -1,7 +1,7 @@
 <h3>Recent activities</h3>
 
 <ul class="unstyled activity-list">
-  <% if activity_of_current_user.nil? %>
+  <% if activity_of_current_user.blank? %>
     <% activities = recent_user_activities %>
   <% else %>
     <% activities = users_doing_the_same(activity_of_current_user) %>
