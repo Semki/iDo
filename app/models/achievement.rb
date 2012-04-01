@@ -7,4 +7,8 @@ class Achievement < ActiveRecord::Base
     return false if activity_id.nil? 
     return Globals.get_activities_count_by_user_and_range(user_id, activity_id, 0, 0) >= count
   end
+
+  def self.get_by_user(user_id)
+    UserAchievement.find_by_user_id(user_id).to_a.collect{ |ua| ua.achievement}
+  end
 end

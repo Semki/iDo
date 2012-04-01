@@ -6,6 +6,7 @@ IDo::Application.routes.draw do
   root :to => 'application#index', :as => :home
   match 'select' => 'activities#select', :as => :activities_select
   match 'submit' => 'activities#submit', :as => :activities_submit
+  match 'my_achievements' => 'achievements#user_achievements', :as => :my_achievements
   resources :achievements
   resources :activities
 

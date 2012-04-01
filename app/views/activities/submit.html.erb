@@ -1,8 +1,8 @@
-<div class='well'>
-<h1>Заебись внатуре записалось</h1>
 
-<%= @users %>
+<h1>People doing the same right now:</h1>
+
 <% @users.each do |u| %>
+<div class='well'>
   <h2><%= u.email %></h2>
-<% end %>
 </div>
+<% end %>
