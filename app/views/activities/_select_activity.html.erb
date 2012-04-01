@@ -1,3 +1,32 @@
+<style>
+	#div.slider_block { padding: 10px !important; }
+	</style>
+	<script>
+    var objArray = new Array();
+  
+    
+    <% activities_list.each do |act| %>
+      <% if(act[:duration]>0)%>
+          objArray[<%= act.id %>] = <%=  act.duration %>;
+      <% end %>
+    <% end %>
+    
+    alert(objArray);
+    
+    $(function() {
+        $( "#slider" ).slider({
+          value:0,
+          min: 5,
+          max: 600,
+          step: 5,
+          slide: function( event, ui ) {
+            $( "#amount" ).val( ui.value );
+          }
+        });
+        $( "#amount" ).val( $( "#slider" ).slider( "value" ) );
+      });
+	</script>
+
 <div class='well' style="width: 350px;padding: 10px 0px 1px 10px;">
 
   <%= form_tag activities_submit_url, :method => 'post', :style => 'margin:0;padding:0' do %>
@@ -5,11 +34,21 @@
      <span id="image-container"></span>
      <%= submit_tag 'Submit', :class => 'btn btn-primary btn-large', :style => 'margin-bottom: 10px;' %>
   <% end %>
+    <div class="slider_block">
+    <p>
+      <label for="amount">Duration (10 min increments):</label>
+      <input type="text" id="amount" style="border:0; font-weight:bold;" />
+    </p>
+    <div id="slider"></div>
+  </div>
 </div>
 
 <script type="text/javascript">
   $("#select-activity").change(function () {
     var name = $("#select-activity option:selected").text().replace(/ /g,"_");
+    var id = $("#select-activity option:selected").value;
+    alert("duration "+objArray);
+    $("#slider").value = objArray[id];
     $("#image-container").empty();
     $("#image-container").append('<img style="margin: 0 3px 10px 3px;" src="/images/activities/' + name + '.png"></img>');
   }).trigger('change');

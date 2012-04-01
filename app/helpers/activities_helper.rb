@@ -1,6 +1,11 @@
 module ActivitiesHelper
   def activities
-    Activity.all.collect{|a| [a.name, a.id]}
+    Activity.all.collect{|a| [a.name, a.id,a.duration]}
+  end
+  
+  def activities_list
+    #Activity.all.collect{|a| {:id=>a.id,:name=>a.name,:duration=>a.duration}}
+    Activity.all
   end
 
   def recent_user_activities
