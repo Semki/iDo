@@ -13,6 +13,7 @@ class Globals
   # ^LastActivities(activity_id, finish_time, user_id) = ""
   # ^UserHistory(user_id, start_time, finish_time, activity_id) = ""
   # ^UserActivities(user_id, activity_id, start_time) = ""
+  # ^RecentActivities(start_time, activity_id, user_id) = ""
   
   def self.connection
     connection =  JavaLang::ConnectionContext.getConnection()
@@ -28,6 +29,7 @@ class Globals
     Globals.connection.createNodeReference("LastActivities").kill()
     Globals.connection.createNodeReference("UserHistory").kill()
     Globals.connection.createNodeReference("UserActivities").kill()
+    Globals.connection.createNodeReference("RecentActivities").kill()
     Globals.connection.commit()
   rescue => ex
     Globals.connection.rollback(1)
@@ -47,20 +49,23 @@ class Globals
   end
   
   def self.save_activity_in_history(user_id, activity_id, finish_time)
-    node = Globals.connection.createNodeReference("UserHistory")
+    time_now = Time.new.to_i
+    history_node = Globals.connection.createNodeReference("UserHistory")
     activities_node = Globals.connection.createNodeReference("UserActivities")
-    if node.hasSubnodes(user_id)
-      last_start_time = node.previousSubscript(user_id, "")
-      last_finish_time = node.previousSubscript(user_id, last_start_time, Time.new.to_i)
-      unless last_finish_time == ""
-        last_activity = node.previousSubscript(user_id, last_start_time, last_finish_time, "")
-        node.kill(user_id, last_start_time, last_finish_time, last_activity)
-        node.set("", user_id, last_start_time, Time.new.to_i, last_activity)
+    recents_node = Globals.connection.createNodeReference("RecentActivities")
+    if history_node.hasSubnodes(user_id)
+      last_start_time = history_node.previousSubscript(user_id, "")
+      last_finish_time = history_node.nextSubscript(user_id, last_start_time, "")
+      last_activity = history_node.previousSubscript(user_id, last_start_time, last_finish_time, "")
+      recents_node.kill(last_start_time, last_activity, user_id)
+      unless last_finish_time.to_i < time_now
+        history_node.kill(user_id, last_start_time, last_finish_time, last_activity)
+        history_node.set("", user_id, last_start_time, time_now, last_activity)
       end 
     end
-    time = Time.new.to_i
-    node.set("", user_id, time, finish_time, activity_id)
-    activities_node.set("", user_id, activity_id, time)
+    history_node.set("", user_id, time_now, finish_time, activity_id)
+    activities_node.set("", user_id, activity_id, time_now)
+    recents_node.set("", time_now, activity_id, user_id)
   end
   
   def self.save_activity(user_id, activity_id, finish_time)
@@ -131,6 +136,33 @@ class Globals
       end
     end
     
+    result
+  end
+  
+  def self.recent_activities(count)
+    node = Globals.connection.createNodeReference("RecentActivities")
+    result = []
+    time = ""
+    while true
+      time = node.previousSubscript(time)
+      break if time == ""
+      
+      activity = ""
+      while true
+        activity = node.nextSubscript(time, activity)
+        break if activity == ""
+        
+        user = ""
+        while true
+          user = node.nextSubscript(time, activity, user)
+          break if user == ""
+          
+          result << {:activity_id => activity, :user_id => user}
+          
+          return result if result.size >= count
+        end
+      end
+    end
     result
   end
 

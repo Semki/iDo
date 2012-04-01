@@ -1,3 +1,17 @@
 <h1>Index</h1>
 
 <%= link_to "Sign in", user_omniauth_authorize_path(:twitter) %>
+
+<table>
+  <tr>
+    <th>User</th>
+    <th>Activity</th>
+  </tr>
+
+<% @recents.each do |record| %>
+  <tr>
+    <td><%= record[:user_id] %></td>
+    <td><%= record[:activity_id] %></td>
+  </tr>
+<% end %>
+</table>
