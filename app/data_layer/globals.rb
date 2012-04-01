@@ -112,17 +112,26 @@ class Globals
     counter
   end
   
-  def self.has_acitivities_in_time_window(user_id, acitivity_id, count, time_window=0)
-    return 1
+  def self.has_activities_in_time_window(user_id, acitivity_id, count, time_window=0)
     # ^UserActivities(user_id, activity_id, start_time) = ""
     node = Globals.connection.createNodeReference("UserActivities")
+    result = false
     start_times = [0]
     time = 0
     while true
       time = node.nextSubscript(user_id, activity_id, time)
       break if time == ""
       
+      start_times << time
+      start_times.shift if start_times.size > count
+      
+      if (start_times.size == count && start_times[count-1] - start_times[0] <= time_window)
+        result = true
+        break
+      end
     end
+    
+    result
   end
 
 end
