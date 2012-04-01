@@ -11,3 +11,9 @@
  *= require_self
  *= require_tree .
 */
+
+body {
+  background-image: url(/images/texture.jpg);
+  background-repeat: repeat-x;
+  background-position: 0 -230px;
+}
