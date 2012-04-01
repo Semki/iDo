@@ -113,9 +113,10 @@ class Globals
   end
   
   def self.get_users_doing_the_same(activity_id)
+    puts "activity_id" + activity_id
     activities_node = Globals.connection.createNodeReference("LastActivities")
     users = []
-    now_time = "" #Time.new.to_i
+    now_time = Time.new.to_i
     time = now_time
     while true
       time = activities_node.nextSubscript(activity_id, time)
@@ -226,6 +227,7 @@ class Globals
     return "" if start_time == ""
     finish_time = node.previousSubscript(user_id, start_time, "")
     return "" if finish_time == ""
+    return "" if finish_time.to_i < Time.new.to_i
     node.previousSubscript(user_id, start_time, finish_time, "")
   end
   
