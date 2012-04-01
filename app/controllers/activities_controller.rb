@@ -1,5 +1,7 @@
 class ActivitiesController < ApplicationController
-
+  
+  before_filter :is_admin?
+  
   def select
   end
 

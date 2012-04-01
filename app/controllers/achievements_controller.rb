@@ -1,5 +1,7 @@
 class AchievementsController < ApplicationController
 
+  before_filter :is_admin?
+  
   def user_achievements
     @achievements = Achievement.get_by_user(current_user.id)
   end
