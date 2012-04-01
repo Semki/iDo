@@ -1,19 +1,15 @@
 <p>
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec viverra ipsum vel mi interdum ut elementum purus scelerisque. Praesent pellentesque lorem at felis consequat consequat. Integer non turpis nulla. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Sed nulla mauris, feugiat sit amet accumsan non, vestibulum et lorem. Phasellus at semper erat. Nulla feugiat sollicitudin vehicula.
+  Short project description will be here
 </p>
-<p>
-Fusce nisl erat, tincidunt ac viverra a, laoreet et ligula. Proin ultrices interdum nisl, sed scelerisque elit porttitor in. Fusce est ipsum, euismod a ullamcorper a, feugiat eu lacus. Proin suscipit dui at nibh pharetra a accumsan risus euismod. Phasellus ultrices enim ac orci faucibus rhoncus. Donec ut interdum ligula. Aenean pharetra leo id magna fringilla tincidunt sed et lorem. Suspendisse potenti. Quisque vel sapien nunc, accumsan egestas metus. Maecenas in metus sit amet leo volutpat viverra non a risus. Vestibulum accumsan pellentesque nibh vel varius. Phasellus nec dui ipsum.
-</p>
-<p>
-Morbi pellentesque congue sapien, ac rhoncus lacus scelerisque et. Integer tristique velit nisl, quis posuere massa. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut velit nec mi commodo facilisis. Donec auctor turpis quis lacus luctus vitae consectetur eros eleifend. Maecenas magna velit, tincidunt eu cursus a, vulputate ac odio. Aenean eleifend auctor nisi, at aliquet sapien ultrices ac. In mollis, elit consectetur auctor tincidunt, nulla tortor fringilla leo, at ornare nunc elit eu nibh. Aliquam erat volutpat. Mauris consequat vestibulum ultrices. Proin vel augue id lectus consectetur eleifend. Maecenas congue scelerisque cursus. Mauris pretium, eros non mattis feugiat, leo dolor volutpat mauris, quis vestibulum nisl lacus eget lacus.
-</p>
+
+<br />
+<h2>Submit your activity right now!</h2>
+
+
+<br />
+<h2>Other people's activity:</h2>
 
 <table>
-  <tr>
-    <th>User</th>
-    <th>Activity</th>
-  </tr>
-
 <% @recents.each do |record| %>
   <tr>
     <td><%= User.find(record[:user_id]).name %></td>
