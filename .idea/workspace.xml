@@ -2,34 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90661a7d-6a0a-42c1-9ba3-566bdfccb46a" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/models/user_bonus.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/achievements/_user_achievements.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/activities/_activity_with_picture.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/app/views/activities/_current_user_activity.html.erb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20120401091414_create_user_bonus.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/db/migrate/20120401092109_add_is_admin_to_users.rb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/fixtures/user_bonus.yml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/test/unit/user_bonus_test.rb" />
       <change type="DELETED" beforePath="D:\git\iDo\app\views\activities\_selectActivity.html.erb" afterPath="" />
       <change type="DELETED" beforePath="D:\git\iDo\public\images\activities\dog_walking.png" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/assets/stylesheets/application.css" afterPath="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/achievements_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/achievements_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/activities_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/activities_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/bonus_achievements_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/bonus_achievements_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/data_layer/globals.rb" afterPath="$PROJECT_DIR$/app/data_layer/globals.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/achievements_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/achievements_helper.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/helpers/activities_helper.rb" afterPath="$PROJECT_DIR$/app/helpers/activities_helper.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/achievement.rb" afterPath="$PROJECT_DIR$/app/models/achievement.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/bonus_achievement.rb" afterPath="$PROJECT_DIR$/app/models/bonus_achievement.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/models/user.rb" afterPath="$PROJECT_DIR$/app/models/user.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/achievements/user_achievements.html.erb" afterPath="$PROJECT_DIR$/app/views/achievements/user_achievements.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/achievements/_form.html.erb" afterPath="$PROJECT_DIR$/app/views/achievements/_form.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/activities/_recent_activities.html.erb" afterPath="$PROJECT_DIR$/app/views/activities/_recent_activities.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/activities/submit.html.erb" afterPath="$PROJECT_DIR$/app/views/activities/submit.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/application/index.html.erb" afterPath="$PROJECT_DIR$/app/views/application/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/db/schema.rb" afterPath="$PROJECT_DIR$/db/schema.rb" />
     </list>
     <ignored path="iDo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -52,15 +29,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="_activity_with_picture.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/activities/_activity_with_picture.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="2" column="2" selection-start="80" selection-end="80" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="_current_user_activity.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/activities/_current_user_activity.html.erb">
           <provider selected="true" editor-type-id="text-editor">
@@ -70,10 +38,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="achievements_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="achievements_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/achievements_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="21" selection-start="197" selection-end="197" vertical-scroll-proportion="0.28235295">
+            <state line="8" column="21" selection-start="197" selection-end="197" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="_form.html.erb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/views/achievements/_form.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="30" column="8" selection-start="767" selection-end="767" vertical-scroll-proportion="-5.1">
               <folding />
             </state>
           </provider>
@@ -82,7 +59,7 @@
       <file leaf-file-name="_recent_activities.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/activities/_recent_activities.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="8" column="111" selection-start="286" selection-end="393" vertical-scroll-proportion="-5.6">
+            <state line="6" column="40" selection-start="184" selection-end="204" vertical-scroll-proportion="-4.2">
               <folding />
             </state>
           </provider>
@@ -124,10 +101,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activities_helper.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="activities_helper.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/helpers/activities_helper.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="12" column="30" selection-start="359" selection-end="383" vertical-scroll-proportion="0.0">
+            <state line="15" column="36" selection-start="549" selection-end="549" vertical-scroll-proportion="0.5294118">
               <folding />
             </state>
           </provider>
@@ -136,10 +113,8 @@
       <file leaf-file-name="globals.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/data_layer/globals.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="2" selection-start="169" selection-end="183" vertical-scroll-proportion="0.0">
-              <folding>
-                <marker date="1333274883618" expanded="true" signature="7094:7859" placeholder="while ... end" />
-              </folding>
+            <state line="114" column="35" selection-start="4523" selection-end="4547" vertical-scroll-proportion="0.0">
+              <folding />
             </state>
           </provider>
         </entry>
@@ -158,22 +133,22 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/views/activities/select.html.erb" />
         <option value="$PROJECT_DIR$/app/views/activities/_select_activity.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
         <option value="$PROJECT_DIR$/app/views/achievements/user_achievements.html.erb" />
         <option value="$PROJECT_DIR$/app/helpers/achievements_helper.rb" />
         <option value="$PROJECT_DIR$/app/views/achievements/_user_achievements.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/activities/_recent_activities.html.erb" />
         <option value="$PROJECT_DIR$/app/views/activities/_activity_with_picture.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/activities_controller.rb" />
         <option value="$PROJECT_DIR$/app/data_layer/globals.rb" />
-        <option value="$PROJECT_DIR$/app/helpers/activities_helper.rb" />
         <option value="$PROJECT_DIR$/app/views/application/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/activities/_current_user_activity.html.erb" />
         <option value="$PROJECT_DIR$/app/controllers/achievements_controller.rb" />
+        <option value="$PROJECT_DIR$/app/views/achievements/_form.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/activities/_recent_activities.html.erb" />
+        <option value="$PROJECT_DIR$/app/helpers/activities_helper.rb" />
       </list>
     </option>
   </component>
@@ -810,13 +785,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="43" column="21" selection-start="1032" selection-end="1032" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/achievements/edit.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
@@ -859,43 +827,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/activities_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="35" selection-start="241" selection-end="241" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/activities/_recent_activities.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="111" selection-start="286" selection-end="393" vertical-scroll-proportion="-5.6">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/achievements_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="1" column="18" selection-start="44" selection-end="44" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/data_layer/globals.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="2" selection-start="169" selection-end="183" vertical-scroll-proportion="0.0">
-          <folding>
-            <marker date="1333274883618" expanded="true" signature="7094:7859" placeholder="while ... end" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/helpers/activities_helper.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="30" selection-start="359" selection-end="383" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/application/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="49" selection-start="188" selection-end="188" vertical-scroll-proportion="-3.5">
@@ -919,7 +850,49 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/achievements_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="21" selection-start="197" selection-end="197" vertical-scroll-proportion="0.28235295">
+        <state line="8" column="21" selection-start="197" selection-end="197" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/achievements/_form.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="8" selection-start="767" selection-end="767" vertical-scroll-proportion="-5.1">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/data_layer/globals.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="114" column="35" selection-start="4523" selection-end="4547" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/achievements_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="1" column="18" selection-start="44" selection-end="44" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/activities_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="35" selection-start="241" selection-end="241" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/activities/_recent_activities.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="6" column="40" selection-start="184" selection-end="204" vertical-scroll-proportion="-4.2">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/helpers/activities_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="36" selection-start="549" selection-end="549" vertical-scroll-proportion="0.5294118">
           <folding />
         </state>
       </provider>

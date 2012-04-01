@@ -1,7 +1,12 @@
 <h3>Recent activities</h3>
 
 <ul class="unstyled activity-list">
-  <% recent_user_activities.each do |ra| %>
+  <% if activity_of_current_user.nil? %>
+    <% activities = recent_user_activities %>
+  <% else %>
+    <% activities = users_doing_the_same(activity_of_current_user) %>
+  <% end %>
+  <% activities.each do |ra| %>
   <li>
     <img src="<%= ra[:user_picture] %>" alt="<%= ra[:user_name] %>" style="width:30px;height:30px" />
     <span><%= ra[:user_name] %></span>
