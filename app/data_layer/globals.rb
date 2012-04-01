@@ -9,6 +9,11 @@ end
 
 class Globals
   
+  # ^LastUserActivity(user_id, activity_id, finish_time) = ""
+  # ^LastActivities(activity_id, finish_time, user_id) = ""
+  # ^UserHistory(user_id, start_time, finish_time, activity_id) = ""
+  # ^UserActivities(user_id, activity_id, start_time) = ""
+  
   def self.connection
     connection =  JavaLang::ConnectionContext.getConnection()
     unless connection.isConnected
@@ -22,6 +27,7 @@ class Globals
     Globals.connection.createNodeReference("LastUserActivity").kill()
     Globals.connection.createNodeReference("LastActivities").kill()
     Globals.connection.createNodeReference("UserHistory").kill()
+    Globals.connection.createNodeReference("UserActivities").kill()
     Globals.connection.commit()
   rescue => ex
     Globals.connection.rollback(1)
@@ -54,7 +60,7 @@ class Globals
     end
     time = Time.new.to_i
     node.set("", user_id, time, finish_time, activity_id)
-    activities_node.set("", user_id, activity_id, Time.new.to_i)
+    activities_node.set("", user_id, activity_id, time)
   end
   
   def self.save_activity(user_id, activity_id, finish_time)
@@ -104,6 +110,19 @@ class Globals
     end
     
     counter
+  end
+  
+  def self.has_acitivities_in_time_window(user_id, acitivity_id, count, time_window=0)
+    return 1
+    # ^UserActivities(user_id, activity_id, start_time) = ""
+    node = Globals.connection.createNodeReference("UserActivities")
+    start_times = [0]
+    time = 0
+    while true
+      time = node.nextSubscript(user_id, activity_id, time)
+      break if time == ""
+      
+    end
   end
 
 end
