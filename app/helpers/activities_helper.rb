@@ -16,8 +16,19 @@ module ActivitiesHelper
        :user_picture => User.find(ra).image_url, :activity_id => activity_id }
     }
   end
-
+  
+  def last_user_activities(user,count)
+    Globals.last_user_activities(user.id, count).collect{|ra|
+       {:user_id => user.id, :user_name => user.name,
+       :user_picture => user.image_url, :activity_id => ra[:activity_id] }
+    }
+  end
+  
   def activity_of_current_user
-    Globals.get_user_current_activity(current_user.id)
+    activity_of_user current_user
+  end
+  
+  def activity_of_user(user)
+    Globals.get_user_current_activity(user.id)
   end
 end
