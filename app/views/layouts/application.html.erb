@@ -51,8 +51,8 @@
         </div>
 
         <div class="span4">
-          <%= render :partial => 'activities/current_user_activity' %>
-          <%= render :partial => 'achievements/user_achievements' %>
+          <%= render :partial => 'activities/current_user_activity', :locals=>{:user=>@user} %>
+          <%= render :partial => 'achievements/user_achievements', :locals=>{:user=>@user} %>
         </div>
       </div>
     </div>

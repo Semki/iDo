@@ -1,10 +1,10 @@
-<% unless current_user.nil? %>
-  <% if achievements.empty? %>
+<% unless @user.nil? %>
+  <% if @user.achievements.empty? %>
     <h2>You currently have no achievements</h2>
     <h3>Work harder, pussy</h3>
   <% else %>
     <h2>Your achievements</h2>
-    <% achievements.each do |a| %>
+    <% @user.achievements.each do |a| %>
       <div class='achievement-container'>
         <img src="/images/achievements/<%= a.picture_url %>" alt="<%= a.name %>" style="width:112px;height:112px">
         <p style="width: 112px; text-align: center;margin: 3px 0"><%= a.name %></p>

@@ -28,4 +28,8 @@ class User < ActiveRecord::Base
     name
   end
   
+  def achievements
+    Achievement.get_by_user(self.id)
+  end
+  
 end
