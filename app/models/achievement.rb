@@ -28,4 +28,22 @@ class Achievement < ActiveRecord::Base
   def self.get_by_user(user_id)
     UserAchievement.find_all_by_user_id(user_id).to_a.collect{ |ua| ua.achievement}
   end
+  
+  # adding additional achievements
+  def self.create_user_bonuses(user_id)
+    user = User.find(user_id)
+    return if user.nil?
+    ids = []
+    UserAchievement.find_all_by_user_id(user_id).each {|user_achievement | ids.push(user_achievement.id) }
+    
+    bonuses_ids = []
+    Globals.calc_bonuses_ids(ids.sort, bonuses_ids)
+    bonuses_ids.each { |id| 
+      UserAchievement.create(:user_id => user_id, :achievement_id => id) if UserAchievement.find_all_by_user_id_and_achievement_id(user_id, id).first.nil? }
+  end
+  
+  def self.init_bonus_achievements(bonus_id, ids)
+    Globals.init_bonus_achievements(bonus_id, ids.sort)
+  end
+  
 end

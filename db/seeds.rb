@@ -2,7 +2,7 @@ Activity.destroy_all
 Achievement.destroy_all
 
 activity_eating = Activity.create({:name => 'Eating', :picture_url => 'eating.png'})
-Achievement.create({:name => 'fatman', :duration => '1', :count => '7', :activity_id => activity_eating.id, :picture_url => 'fatman.png' })
+fatman = Achievement.create({:name => 'fatman', :duration => '1', :count => '7', :activity_id => activity_eating.id, :picture_url => 'fatman.png' })
 
 #activity_coding = Activity.create({:name => 'Coding'})
 activity_working = Activity.create({:name => 'Working', :picture_url => 'working.png'})
@@ -21,6 +21,13 @@ activity_walking = Activity.create({:name => 'Walking with dog', :picture_url =>
 activity_drinking = Activity.create({:name => 'Drinking', :picture_url => 'drinking.png'})
 activity_playing_balalaika = Activity.create({:name => 'Playing balalaika with my bear', :picture_url => 'playing_balalaika_with_my_bear.png'})
 Achievement.create({:name => 'balalaika perfomance', :duration => '0', :count => '1', :activity_id => activity_playing_balalaika.id, :picture_url => 'balalaika.png' })
+
+
+bonus = Achievement.create({:name => 'bonus!', :description => 'secret bonus for playing balalaika and eating!',  :duration => '0', :count => '1', :picture_url => 'bonus.png' })
+ids = []
+ids.push(activity_playing_balalaika.id)
+ids.push(fatman.id)
+Achievement.init_bonus_achievements(bonus.id, ids)
 
 UserAchievement.destroy_all
 Globals.clean
