@@ -13,3 +13,6 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+//= javascript_include_tag "/jquery-ui-1.8.18.custom.min.js"
+//= javascript_include_tag 'rails'
