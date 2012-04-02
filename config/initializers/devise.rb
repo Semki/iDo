@@ -222,6 +222,6 @@ Devise.setup do |config|
   # end
   
   require "omniauth-twitter"
-  config.omniauth :twitter, "n0O6J3lY1Ey0VJMc6SHV4Q", "8vCgbRbATA4q89fvsuryAZEXMa3TadGnGnrYrHPhEk"
-  
+  #config.omniauth :twitter, "n0O6J3lY1Ey0VJMc6SHV4Q", "8vCgbRbATA4q89fvsuryAZEXMa3TadGnGnrYrHPhEk"
+  config.omniauth :twitter, ENV['TWITTER_APP_KEY'], ENV['TWITTER_APP_SECRET']
 end
