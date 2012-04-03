@@ -1,5 +1,6 @@
 Activity.destroy_all
 Achievement.destroy_all
+User.destroy_all
 
 activity_eating = Activity.create({:name => 'Eating', :picture_url => 'eating.png'})
 fatman = Achievement.create({:name => 'fatman', :duration => '1', :count => '7', :activity_id => activity_eating.id, :picture_url => 'fatman.png' })

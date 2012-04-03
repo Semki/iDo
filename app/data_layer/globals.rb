@@ -15,6 +15,7 @@ class Globals
   # ^UserActivities(user_id, activity_id, start_time) = ""
   # ^RecentActivities(start_time, activity_id, user_id) = ""
   # ^Cache(key) = value
+  # ^Bonuses(achievement_id_1, ..., achievement_id_N) = bonus_achievement_id
   
   def self.connection
     connection =  JavaLang::ConnectionContext.getConnection()
@@ -32,32 +33,71 @@ class Globals
     Globals.connection.createNodeReference("UserActivities").kill()
     Globals.connection.createNodeReference("RecentActivities").kill()
     Globals.connection.createNodeReference("Cache").kill()
+    Globals.connection.createNodeReference("Bonus").kill()
     Globals.connection.commit()
   rescue => ex
     Globals.connection.rollback(1)
   end
   
+  def self.create_fake_users
+    bots_array = []
+    idx = 1
+    bots_array << [bots_array.size+1, "Shaquille O'Neal", "Shaquille", "http://a0.twimg.com/profile_images/1673907275/image_normal.jpg"]
+    
+    
+    bots_array << [bots_array.size+1, "Justin Timberlake", "jtimberlake", "http://a0.twimg.com/profile_images/1668679074/JT_NY_Times_Twitter_Photo_normal.JPG"]
+    bots_array << [bots_array.size+1, "björk", "bjork", "http://a0.twimg.com/profile_images/1581357326/biophilia_500_normal.jpg"]
+    bots_array << [bots_array.size+1, "Snoop Dogg", "SnoopDogg", "http://a0.twimg.com/profile_images/1644506238/image003_normal.jpg"]
+    bots_array << [bots_array.size+1, "Arnold", "Schwarzenegger1", "http://a0.twimg.com/profile_images/1349459573/chess_normal.JPG"]
+    bots_array << [bots_array.size+1, "Oprah Winfrey", "Oprah", "http://a0.twimg.com/profile_images/1453653315/OW_and_Sadie_-_Twitter_normal.jpg"]
+    bots_array << [bots_array.size+1, "moby", "thelittleidiot", "http://a0.twimg.com/profile_images/138840578/moby-waitforme-li_normal.jpg"]
+    bots_array << [bots_array.size+1, "Katy Perry", "katyperry", "http://a0.twimg.com/profile_images/1845310916/ViewImage-2.aspx_normal.jpeg"]
+    bots_array << [bots_array.size+1, "Judd Apatow", "JuddApatow", "http://a0.twimg.com/profile_images/1928486193/image_normal.jpg"]
+    bots_array << [bots_array.size+1, "Matthew Perry", "LangfordPerry", "http://a0.twimg.com/profile_images/1290579778/IMG_0517_normal.jpg"]
+    
+    bots_array << [bots_array.size+1, "Jim Carrey", "JimCarrey", "http://a0.twimg.com/profile_images/1920831777/image_normal.jpg"]
+    
+    bots_array << [bots_array.size+1, "Bill Gates", "BillGates", "http://a0.twimg.com/profile_images/1884069342/BGtwitter_normal.JPG"]
+    
+    bots_array << [bots_array.size+1, "Lady Gaga", "ladygaga", "http://a0.twimg.com/profile_images/1239447061/Unnamed-1_normal.jpg"]
+    
+    bots_array << [bots_array.size+1, "Marshall Mathers", "Eminem", "http://a0.twimg.com/profile_images/859433636/recoveryapprovedcrop_normal.jpg"]
+    
+    bots_array << [bots_array.size+1, "David Guetta", "davidguetta", "http://a0.twimg.com/profile_images/1445376527/david-guetta-nothing-but-the-beat-cover_normal.jpg"]
+    
+    bots_array << [bots_array.size+1, "Tom Hanks", "@tomhanks", "http://a0.twimg.com/profile_images/280455139/l_ecdf8f7aa81d5163129fee54d83a5e63_normal.jpg"]
+    
+      
+    for i in 0..bots_array.size-1
+      user_info = bots_array[i]
+      user = User.find_by_nickname("@"+user_info[2].to_s)
+      if user.nil?
+        puts "create user"
+        User.create!(:email => user_info[2] + "@gmail.com", 
+          :password => Devise.friendly_token[0,20], 
+          :name => user_info[1] ,
+          :nickname => "@" + user_info[2], 
+          :image_url => user_info[3],
+          :twitter_id => (i+1).to_s)
+      end
+    end
+    
+  end
+  
+  # fake life
   def self.populate
+    
+    self.create_fake_users()
     first_user = User.find(:first).id.to_i
     last_user = User.find(:last).id.to_i
     first_activity = Activity.find(:first).id.to_i
     last_activity = Activity.find(:last).id.to_i
-    
-    for i in 1..40 
-      user = User.find_by_twitter_id(i.to_s)
-      if user.nil?
-        puts "create user"
-        User.create!(:email => "mail@ggg.com" + i.to_s, 
-          :password => Devise.friendly_token[0,20], 
-          :name => "Bot name " + i.to_s,
-          :nickname => "Bot " + i.to_s, 
-          :image_url => "http://a0.twimg.com/sticky/default_profile_images/default_profile_4_normal.png",
-          :twitter_id => i.to_s)
-      end
-    end
-      
+   
+    size = User.all.size
     while true
-      user_id = rand(last_user - first_user + 1).to_i + first_user
+      [rand(last_user - first_user + 1).to_i]
+      user_id = User.all[rand(size)].id
+      
       activity_id = rand(last_activity-first_activity + 1).to_i + first_activity
       finish_time = Time.new.to_i + 120
       Globals.save_activity(user_id, activity_id, finish_time)
@@ -238,18 +278,21 @@ class Globals
     node.getString(key)
   end
   
+  # Creating bonuses scheme = for which combination  of achievements, we can give a bonus achievement
   def self.init_bonus_achievements(bonus_id, ids)
     node = Globals.connection.createNodeReference("Bonuses")
     ids.each { |id| node.appendSubscript(id) }
     node.set(bonus_id)
   end
   
+  # Are in bonus scheme a bonus for such combination?
   def self.get_bonuses_ids(ids)
     node = Globals.connection.createNodeReference("Bonuses")
     ids.each { |id| node.appendSubscript(id) }
     node.getString()
   end
   
+  # Calculating bonuses for current user achievement's set
   def self.calc_bonuses_ids(ids, result)
     id = get_bonuses_ids(ids)
     #puts ids
