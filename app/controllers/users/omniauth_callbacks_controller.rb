@@ -15,7 +15,7 @@ class Users::OmniauthCallbacksController < Devise::OmniauthCallbacksController
     if user = User.where(:twitter_id=>twitter_id).first
       flash[:notice] = "Successfully authorized"
     else
-      user = User.create!(:twitter_id=>twitter_id, :name=>name, :nickname=>nickname, :image_url=>image_url)
+      user = User.create!(:twitter_id=>twitter_id, :name=>name, :nickname=>nickname, :image_url=>image_url, :email => "#{nickname}@gmail.com")
       flash[:notice] = "Successfully registered"
     end
     
