@@ -48,8 +48,11 @@
     var name = $("#select-activity option:selected").text().replace(/ /g,"_");
     var id = $("#select-activity option:selected").attr("value");
 	
-    $("#slider").slider( "value" ,objArray[id]);
-	$("#duration").attr( "value" ,objArray[id]);
+	if (objArray[id]!=undefined)
+	{
+		$("#slider").slider( "value" ,objArray[id]);
+		$("#duration").attr( "value" ,objArray[id]);
+	}
     $("#image-container").empty();
     $("#image-container").append('<img style="margin: 0 3px 10px 3px;" src="/images/activities/' + name + '.png"></img>');
   }).trigger('change');
