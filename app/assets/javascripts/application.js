@@ -16,3 +16,4 @@
 
 //= javascript_include_tag "/jquery-ui-1.8.18.custom.min.js"
 //= javascript_include_tag 'rails'
+//= javascript_include_tag "/jquery.filter_input.js"

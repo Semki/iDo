@@ -6,12 +6,10 @@
   
     
     <% activities_list.each do |act| %>
-      <% if(act[:duration]>0)%>
-          objArray[<%= act.id %>] = <%=  act.duration %>;
-      <% end %>
+			<% if(act.duration!=nil)%>
+				objArray[<%= act.id %>] = <%=  act.duration.to_int %>;
+			<% end %>
     <% end %>
-    
-    alert(objArray);
     
     $(function() {
         $( "#slider" ).slider({
@@ -20,11 +18,13 @@
           max: 600,
           step: 5,
           slide: function( event, ui ) {
-            $( "#amount" ).val( ui.value );
+            $( "#duration" ).val( ui.value );
           }
         });
-        $( "#amount" ).val( $( "#slider" ).slider( "value" ) );
+        $( "#duration" ).val( $( "#slider" ).slider( "value" ) );
       });
+	  
+	  $("#duration").filter_input({regex:'[0-9]',live:true});
 	</script>
 
 <div class='well' style="width: 350px;padding: 10px 0px 1px 10px;">
@@ -33,22 +33,23 @@
      <%= select_tag(:activity_id, options_for_select(activities), :id => 'select-activity') %>
      <span id="image-container"></span>
      <%= submit_tag 'Submit', :class => 'btn btn-primary btn-large', :style => 'margin-bottom: 10px;' %>
-  <% end %>
     <div class="slider_block">
     <p>
-      <label for="amount">Duration (10 min increments):</label>
-      <input type="text" id="amount" style="border:0; font-weight:bold;" />
+      <label for="duration">Duration (minutes):</label>
+      <input type="text" id="duration" name="duration" style="border:0; font-weight:bold;" />
     </p>
     <div id="slider"></div>
-  </div>
+	</div>
+  <% end %>
 </div>
 
 <script type="text/javascript">
   $("#select-activity").change(function () {
     var name = $("#select-activity option:selected").text().replace(/ /g,"_");
-    var id = $("#select-activity option:selected").value;
-    alert("duration "+objArray);
-    $("#slider").value = objArray[id];
+    var id = $("#select-activity option:selected").attr("value");
+	
+    $("#slider").slider( "value" ,objArray[id]);
+	$("#duration").attr( "value" ,objArray[id]);
     $("#image-container").empty();
     $("#image-container").append('<img style="margin: 0 3px 10px 3px;" src="/images/activities/' + name + '.png"></img>');
   }).trigger('change');

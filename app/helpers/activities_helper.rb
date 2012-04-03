@@ -1,6 +1,6 @@
 module ActivitiesHelper
   def activities
-    Activity.all.collect{|a| [a.name, a.id,a.duration]}
+    Activity.all.collect{|a| [a.name, a.id]}
   end
   
   def activities_list
