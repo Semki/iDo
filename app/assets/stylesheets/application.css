@@ -29,14 +29,23 @@ body {
 }
 
 .achievement-container {
+  background: #EEE;
   padding: 5px;
   margin-top: 5px;
   margin-right: 5px;
-  border: 1px solid black;
-  border-radius: 6px;
-  width: 113px;
-  height: 160px;
+  border: 1px solid #ffffff;
+  width: 69px;
+  height: 69px;
   float: left;
+}
+
+.achievement-container img {
+  width: 68px;
+  height: 68px;
+}
+
+.achievement-container p {
+  display: none;
 }
 
 .activity-list li {

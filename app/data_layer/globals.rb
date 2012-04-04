@@ -38,9 +38,9 @@ class Globals
   rescue => ex
     Globals.connection.rollback(1)
   end
-    
-  def self.create_fake_users
-    [
+  
+  def self.get_fake_users
+     [
       "Shaquille O'Neal", "Shaquille", "http://a0.twimg.com/profile_images/1673907275/image_normal.jpg",
       "björk", "bjork", "http://a0.twimg.com/profile_images/1581357326/biophilia_500_normal.jpg",
       "Justin Timberlake", "jtimberlake", "http://a0.twimg.com/profile_images/1668679074/JT_NY_Times_Twitter_Photo_normal.JPG",
@@ -56,8 +56,20 @@ class Globals
       "Lady Gaga", "ladygaga", "http://a0.twimg.com/profile_images/1239447061/Unnamed-1_normal.jpg",
       "Marshall Mathers", "Eminem", "http://a0.twimg.com/profile_images/859433636/recoveryapprovedcrop_normal.jpg",
       "David Guetta", "davidguetta", "http://a0.twimg.com/profile_images/1445376527/david-guetta-nothing-but-the-beat-cover_normal.jpg",
-      "Tom Hanks", "@tomhanks", "http://a0.twimg.com/profile_images/280455139/l_ecdf8f7aa81d5163129fee54d83a5e63_normal.jpg"
-    ].each_slice(3).with_index do |(name,nickname,image), index|
+      "Tom Hanks", "tomhanks", "http://a0.twimg.com/profile_images/280455139/l_ecdf8f7aa81d5163129fee54d83a5e63_normal.jpg"
+    ]
+  end   
+  
+  @@fake_users = []
+  def self.is_user_faked(user_nickname)
+   get_fake_users.each_slice(3).with_index do |(name,nickname,image), index|
+      @@fake_users << nickname 
+    end if @@fake_users.size == 0
+    @@fake_users.include?(user_nickname)
+  end
+  
+  def self.create_fake_users
+   get_fake_users.each_slice(3).with_index do |(name,nickname,image), index|
     
       User.find_or_create_by_nickname nickname, {
         :email => "#{nickname}@gmail.com",
@@ -84,7 +96,10 @@ class Globals
     size = User.all.size
     while true
       [rand(last_user - first_user + 1).to_i]
-      user_id = User.all[rand(size)].id
+      user = User.all[rand(size)]
+      user_id = user.id
+      
+      next unless self.is_user_faked(user.nickname)
       
       activity_id = rand(last_activity-first_activity + 1).to_i + first_activity
       finish_time = Time.new.to_i + 120
