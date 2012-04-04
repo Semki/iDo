@@ -38,51 +38,39 @@ class Globals
   rescue => ex
     Globals.connection.rollback(1)
   end
-  
+    
   def self.create_fake_users
-    bots_array = []
-    idx = 1
-    bots_array << [bots_array.size+1, "Shaquille O'Neal", "Shaquille", "http://a0.twimg.com/profile_images/1673907275/image_normal.jpg"]
+    [
+      "Shaquille O'Neal", "Shaquille", "http://a0.twimg.com/profile_images/1673907275/image_normal.jpg",
+      "björk", "bjork", "http://a0.twimg.com/profile_images/1581357326/biophilia_500_normal.jpg",
+      "Justin Timberlake", "jtimberlake", "http://a0.twimg.com/profile_images/1668679074/JT_NY_Times_Twitter_Photo_normal.JPG",
+      "Snoop Dogg", "SnoopDogg", "http://a0.twimg.com/profile_images/1644506238/image003_normal.jpg",
+      "Arnold", "Schwarzenegger1", "http://a0.twimg.com/profile_images/1349459573/chess_normal.JPG",
+      "Oprah Winfrey", "Oprah", "http://a0.twimg.com/profile_images/1453653315/OW_and_Sadie_-_Twitter_normal.jpg",
+      "moby", "thelittleidiot", "http://a0.twimg.com/profile_images/138840578/moby-waitforme-li_normal.jpg",
+      "Katy Perry", "katyperry", "http://a0.twimg.com/profile_images/1845310916/ViewImage-2.aspx_normal.jpeg",
+      "Judd Apatow", "JuddApatow", "http://a0.twimg.com/profile_images/1928486193/image_normal.jpg",
+      "Matthew Perry", "LangfordPerry", "http://a0.twimg.com/profile_images/1290579778/IMG_0517_normal.jpg",
+      "Jim Carrey", "JimCarrey", "http://a0.twimg.com/profile_images/1920831777/image_normal.jpg",
+      "Bill Gates", "BillGates", "http://a0.twimg.com/profile_images/1884069342/BGtwitter_normal.JPG",
+      "Lady Gaga", "ladygaga", "http://a0.twimg.com/profile_images/1239447061/Unnamed-1_normal.jpg",
+      "Marshall Mathers", "Eminem", "http://a0.twimg.com/profile_images/859433636/recoveryapprovedcrop_normal.jpg",
+      "David Guetta", "davidguetta", "http://a0.twimg.com/profile_images/1445376527/david-guetta-nothing-but-the-beat-cover_normal.jpg",
+      "Tom Hanks", "@tomhanks", "http://a0.twimg.com/profile_images/280455139/l_ecdf8f7aa81d5163129fee54d83a5e63_normal.jpg"
+    ].each_slice(3).with_index do |(name,nickname,image), index|
     
-    
-    bots_array << [bots_array.size+1, "Justin Timberlake", "jtimberlake", "http://a0.twimg.com/profile_images/1668679074/JT_NY_Times_Twitter_Photo_normal.JPG"]
-    bots_array << [bots_array.size+1, "björk", "bjork", "http://a0.twimg.com/profile_images/1581357326/biophilia_500_normal.jpg"]
-    bots_array << [bots_array.size+1, "Snoop Dogg", "SnoopDogg", "http://a0.twimg.com/profile_images/1644506238/image003_normal.jpg"]
-    bots_array << [bots_array.size+1, "Arnold", "Schwarzenegger1", "http://a0.twimg.com/profile_images/1349459573/chess_normal.JPG"]
-    bots_array << [bots_array.size+1, "Oprah Winfrey", "Oprah", "http://a0.twimg.com/profile_images/1453653315/OW_and_Sadie_-_Twitter_normal.jpg"]
-    bots_array << [bots_array.size+1, "moby", "thelittleidiot", "http://a0.twimg.com/profile_images/138840578/moby-waitforme-li_normal.jpg"]
-    bots_array << [bots_array.size+1, "Katy Perry", "katyperry", "http://a0.twimg.com/profile_images/1845310916/ViewImage-2.aspx_normal.jpeg"]
-    bots_array << [bots_array.size+1, "Judd Apatow", "JuddApatow", "http://a0.twimg.com/profile_images/1928486193/image_normal.jpg"]
-    bots_array << [bots_array.size+1, "Matthew Perry", "LangfordPerry", "http://a0.twimg.com/profile_images/1290579778/IMG_0517_normal.jpg"]
-    
-    bots_array << [bots_array.size+1, "Jim Carrey", "JimCarrey", "http://a0.twimg.com/profile_images/1920831777/image_normal.jpg"]
-    
-    bots_array << [bots_array.size+1, "Bill Gates", "BillGates", "http://a0.twimg.com/profile_images/1884069342/BGtwitter_normal.JPG"]
-    
-    bots_array << [bots_array.size+1, "Lady Gaga", "ladygaga", "http://a0.twimg.com/profile_images/1239447061/Unnamed-1_normal.jpg"]
-    
-    bots_array << [bots_array.size+1, "Marshall Mathers", "Eminem", "http://a0.twimg.com/profile_images/859433636/recoveryapprovedcrop_normal.jpg"]
-    
-    bots_array << [bots_array.size+1, "David Guetta", "davidguetta", "http://a0.twimg.com/profile_images/1445376527/david-guetta-nothing-but-the-beat-cover_normal.jpg"]
-    
-    bots_array << [bots_array.size+1, "Tom Hanks", "@tomhanks", "http://a0.twimg.com/profile_images/280455139/l_ecdf8f7aa81d5163129fee54d83a5e63_normal.jpg"]
-    
-      
-    for i in 0..bots_array.size-1
-      user_info = bots_array[i]
-      user = User.find_by_nickname("@"+user_info[2].to_s)
-      if user.nil?
-        puts "create user"
-        User.create!(:email => user_info[2] + "@gmail.com", 
-          :password => Devise.friendly_token[0,20], 
-          :name => user_info[1] ,
-          :nickname => "@" + user_info[2], 
-          :image_url => user_info[3],
-          :twitter_id => (i+1).to_s)
-      end
+      User.find_or_create_by_nickname nickname, {
+        :email => "#{nickname}@gmail.com",
+        :password => Devise.friendly_token[0,20], 
+        :name => name,
+        :nickname => nickname, 
+        :image_url => image,
+        :twitter_id => index
+      }
+        
     end
-    
   end
+  
   
   # fake life
   def self.populate
