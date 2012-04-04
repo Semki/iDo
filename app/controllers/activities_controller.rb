@@ -8,8 +8,13 @@ class ActivitiesController < ApplicationController
   def submit
     user_id = current_user.id
     activity_id = params[:activity_id]
-	
-    finish_time = Time.new.to_i+(params[:duration].to_i*60)
+
+    duration = params[:duration]
+    unless activity_id.to_i.to_s == activity_id
+      duration = 5
+    end
+
+    finish_time = Time.new.to_i+(duration.to_i*60)
     Achievement.create_achievements_by_user_id_and_activity_id(user_id, activity_id, finish_time)
     Globals.save_activity(user_id, activity_id, finish_time)
     redirect_to home_url
