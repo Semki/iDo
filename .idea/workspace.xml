@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90661a7d-6a0a-42c1-9ba3-566bdfccb46a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/activities_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/activities_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/activities/_recent_activities.html.erb" afterPath="$PROJECT_DIR$/app/views/activities/_recent_activities.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/activities/_select_activity.html.erb" afterPath="$PROJECT_DIR$/app/views/activities/_select_activity.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/application/index.html.erb" afterPath="$PROJECT_DIR$/app/views/application/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/achievements/nerd.png" afterPath="$PROJECT_DIR$/public/images/achievements/nerd.png" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/images/achievements/runner.png" afterPath="$PROJECT_DIR$/public/images/achievements/runner.png" />
     </list>
     <ignored path="iDo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -46,10 +44,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="activities_controller.rb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="activities_controller.rb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/controllers/activities_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="11" selection-start="569" selection-end="569" vertical-scroll-proportion="0.5286041">
+            <state line="22" column="11" selection-start="569" selection-end="569" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="seeds.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="24" column="0" selection-start="1797" selection-end="1797" vertical-scroll-proportion="0.58536583">
               <folding />
             </state>
           </provider>
@@ -59,15 +66,6 @@
         <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
           <provider selected="true" editor-type-id="text-editor">
             <state line="29" column="0" selection-start="808" selection-end="808" vertical-scroll-proportion="0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="_current_user_activity.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/activities/_current_user_activity.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="5" column="9" selection-start="181" selection-end="181" vertical-scroll-proportion="-3.5">
               <folding />
             </state>
           </provider>
@@ -872,13 +870,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/routes.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="0" selection-start="202" selection-end="206" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/helpers/achievements_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="1" column="18" selection-start="44" selection-end="44" vertical-scroll-proportion="0.0" />
@@ -975,7 +966,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/activities_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="11" selection-start="569" selection-end="569" vertical-scroll-proportion="0.5286041">
+        <state line="22" column="11" selection-start="569" selection-end="569" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/db/seeds.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="24" column="0" selection-start="1797" selection-end="1797" vertical-scroll-proportion="0.58536583">
           <folding />
         </state>
       </provider>
