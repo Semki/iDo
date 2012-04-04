@@ -1,6 +1,6 @@
 <% activities = users_doing_the_same(activity_of_current_user) %>
 
-<h2><%= activities.size %> people are doing the same</h2>
+<h2><%= activities.size > 1 ? "#{activities.size} people are" : "1 person is" %> doing the same</h2>
 
 <ul class="unstyled activity-list">
   
