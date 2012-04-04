@@ -1,5 +1,5 @@
 <% unless @user.nil? %>
-  <h2>Your current activity</h2>
+  <h2><%= @user==current_user ? 'Your' : @user.name %> current activity</h2>
   <div class='well'>
     <% current_activity_id = activity_of_user @user%>
     <% if current_activity_id.blank? %>
