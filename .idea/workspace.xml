@@ -2,8 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="90661a7d-6a0a-42c1-9ba3-566bdfccb46a" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/activities_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/activities_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/activities/_recent_activities.html.erb" afterPath="$PROJECT_DIR$/app/views/activities/_recent_activities.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/activities/_select_activity.html.erb" afterPath="$PROJECT_DIR$/app/views/activities/_select_activity.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/application/index.html.erb" afterPath="$PROJECT_DIR$/app/views/application/index.html.erb" />
     </list>
     <ignored path="iDo.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -26,15 +28,6 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="register.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/user/register.html.erb">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="_user_achievements.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/achievements/_user_achievements.html.erb">
           <provider selected="true" editor-type-id="text-editor">
@@ -47,16 +40,16 @@
       <file leaf-file-name="_select_activity.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/activities/_select_activity.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-0.0">
+            <state line="54" column="63" selection-start="2023" selection-end="2023" vertical-scroll-proportion="-37.233334">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="new.html.erb" pinned="false" current="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/views/devise/sessions/new.html.erb">
+      <file leaf-file-name="activities_controller.rb" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/controllers/activities_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="1" column="65" selection-start="104" selection-end="104" vertical-scroll-proportion="-0.7">
+            <state line="22" column="11" selection-start="569" selection-end="569" vertical-scroll-proportion="0.5286041">
               <folding />
             </state>
           </provider>
@@ -89,10 +82,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="_recent_activities.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="_recent_activities.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/activities/_recent_activities.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="10" column="101" selection-start="388" selection-end="388" vertical-scroll-proportion="0.23945267">
+            <state line="0" column="25" selection-start="25" selection-end="25" vertical-scroll-proportion="-0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="globals.rb" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/data_layer/globals.rb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="63" column="62" selection-start="3358" selection-end="3358" vertical-scroll-proportion="-14.48">
               <folding />
             </state>
           </provider>
@@ -110,7 +112,7 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/application/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="3" column="6" selection-start="104" selection-end="104" vertical-scroll-proportion="-2.1">
+            <state line="2" column="0" selection-start="97" selection-end="97" vertical-scroll-proportion="-1.4">
               <folding />
             </state>
           </provider>
@@ -130,7 +132,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/achievements/user_achievements.html.erb" />
         <option value="$PROJECT_DIR$/app/helpers/achievements_helper.rb" />
         <option value="$PROJECT_DIR$/app/data_layer/globals.rb" />
@@ -138,14 +139,15 @@
         <option value="$PROJECT_DIR$/app/controllers/achievements_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/achievements/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/helpers/activities_helper.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/activities_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/devise/sessions/new.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/stylesheets/application.css" />
         <option value="$PROJECT_DIR$/app/views/activities/_current_user_activity.html.erb" />
         <option value="$PROJECT_DIR$/app/views/activities/_activity_with_picture.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/application/index.html.erb" />
         <option value="$PROJECT_DIR$/app/views/achievements/_user_achievements.html.erb" />
         <option value="$PROJECT_DIR$/app/views/activities/_recent_activities.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/application/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/activities/_select_activity.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/activities_controller.rb" />
       </list>
     </option>
   </component>
@@ -486,6 +488,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="controllers" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iDo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="iDo" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -789,15 +809,15 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1056" extended-state="7" />
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296875" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6376051" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.034663867" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15279241" sideWeight="0.36239496" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15279241" sideWeight="0.96533614" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -852,13 +872,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/controllers/activities_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="24" selection-start="390" selection-end="390" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="7" column="0" selection-start="202" selection-end="206" vertical-scroll-proportion="0.0">
@@ -874,13 +887,6 @@
     <entry file="file://$PROJECT_DIR$/app/helpers/activities_helper.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="20" column="4" selection-start="640" selection-end="690" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/data_layer/globals.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="116" column="7" selection-start="4523" selection-end="4547" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/user/new_user.html.erb">
@@ -904,13 +910,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="0" selection-start="808" selection-end="808" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/activities/_current_user_activity.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="9" selection-start="181" selection-end="181" vertical-scroll-proportion="-3.5">
@@ -925,23 +924,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/activities/_select_activity.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="49" column="22" selection-start="1382" selection-end="1382" vertical-scroll-proportion="-17.5">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/application/index.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="6" selection-start="104" selection-end="104" vertical-scroll-proportion="-2.1">
           <folding />
         </state>
       </provider>
@@ -953,9 +938,44 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/app/data_layer/globals.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="63" column="62" selection-start="3358" selection-end="3358" vertical-scroll-proportion="-14.48">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/activities/_recent_activities.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="101" selection-start="388" selection-end="388" vertical-scroll-proportion="0.23945267">
+        <state line="0" column="25" selection-start="25" selection-end="25" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/application/index.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="97" selection-end="97" vertical-scroll-proportion="-1.4">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/stylesheets/application.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="29" column="0" selection-start="808" selection-end="808" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/activities/_select_activity.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="54" column="63" selection-start="2023" selection-end="2023" vertical-scroll-proportion="-37.233334">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/activities_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="22" column="11" selection-start="569" selection-end="569" vertical-scroll-proportion="0.5286041">
           <folding />
         </state>
       </provider>
