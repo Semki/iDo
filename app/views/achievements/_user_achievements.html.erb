@@ -7,7 +7,7 @@
     <% else %>
       <% @user.achievements.each do |a| %>
         <div class='achievement-container'>
-          <img src="/images/achievements/<%= a.picture_url %>" alt="<%= a.name %>" style="width:100px;height:100px">
+          <img src="/images/achievements/<%= a.picture_url %>" alt="<%= a.description %>" style="width:100px;height:100px">
           <p style="width: 112px; text-align: center;margin: 3px 0"><%= a.name %></p>
         </div>
       <% end %>
