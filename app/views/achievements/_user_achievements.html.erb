@@ -1,9 +1,9 @@
 <% unless @user.nil? %>
   <% if @user.achievements.empty? %>
-    <h2>You currently have no achievements</h2>
-    <h3>Work harder, pussy</h3>
+    <h4>You currently have no achievements.</h4>
+    <h4>Why don't you submit your activity?</h4>
   <% else %>
-    <h2>Your achievements</h2>
+    <h4>Your achievements: </h4>
     <% @user.achievements.each do |a| %>
       <div class='achievement-container'>
         <img src="/images/achievements/<%= a.picture_url %>" alt="<%= a.name %>" style="width:112px;height:112px">
