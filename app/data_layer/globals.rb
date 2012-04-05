@@ -232,7 +232,7 @@ class Globals
           user = node.nextSubscript(time, activity, user)
           break if user == ""
           
-          result << {:activity_id => activity, :user_id => user}
+          result << {:activity_id => activity, :user_id => user, :time => time}
           
           return result if result.size >= count
         end
@@ -254,7 +254,7 @@ class Globals
       activity = node.previousSubscript(user_id, start_time, finish_time, "")
       break if activity == ""
       
-      activities << activity
+      activities << { :activity_id => activity, :start_time => start_time, :finish_time => finish_time}
       break if activities.size >= count
     end
     activities
