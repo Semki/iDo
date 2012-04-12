@@ -29,7 +29,7 @@ activity_studying = Activity.create({:name => 'Studying', :picture_url => 'study
 Achievement.create({:name => 'Nerd', :description => 'Wisdom is power', :duration => '10', :count => '1', :activity_id => activity_studying.id , :picture_url => 'nerd.png'})
 
 activity_walking = Activity.create({:name => 'Walking with dog', :picture_url => 'walking_with_dog.png'})
-walker_achievement = Achievement.create({:name => 'Dog walker', :description => 'dog is your best friend!', :duration => '10', :count => '1,
+walker_achievement = Achievement.create({:name => 'Dog walker', :description => 'dog is your best friend!', :duration => '10', :count => '1',
     :activity_id => activity_walking.id, :picture_url => 'dog_walker.png' })
 
 activity_drinking = Activity.create({:name => 'Drinking', :picture_url => 'drinking.png'})
